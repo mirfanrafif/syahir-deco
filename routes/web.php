@@ -21,6 +21,60 @@ Route::get('/detail', function () {
     return view('detailbarang');
 });
 
-Route::get('/barang', function() {
+Route::get('/barang', function () {
+    return view('listbarang');
+});
+
+
+//admin barang
+
+Route::get('/admin/barang', function () {
+    return view('listbarang');
+});
+Route::put('/admin/barang', function () {
+    return view('listbarang');
+});
+
+// Route::push('/admin/barang/push', function () {
+//     return view('listbarang');
+// });
+
+Route::delete('/admin/barang', function () {
+    return view('listbarang');
+});
+
+//admin persewaan
+
+Route::get('/admin/persewaan', function () {
+    return view('listbarang');
+});
+
+Route::put('/admin/persewaan', function () {
+    return view('listbarang');
+});
+
+// Route::push('/admin/persewaan', function () {
+//     return view('listbarang');
+// });
+
+Route::delete('/admin/persewaan', function () {
+    return view('listbarang');
+});
+
+//admin user
+
+Route::get('/admin/user', function () {
+    return view('adminuser');
+});
+
+Route::put('/admin/user', function () {
+    return view('listbarang');
+});
+
+// Route::push('/admin/user', function () {
+//     return view('listbarang');
+// });
+
+Route::delete('/admin/user', function () {
     return view('listbarang');
 });
