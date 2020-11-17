@@ -25,11 +25,27 @@ Route::get('/barang', function () {
     return view('listbarang');
 });
 
+//admin dashboard
+Route::get('/admin', function () {
+    return view('admin/adminuser');
+});
+Route::put('/admin/barang', function () {
+    return view('listbarang');
+});
+
+// Route::push('/admin/barang/push', function () {
+//     return view('listbarang');
+// });
+
+Route::delete('/admin/barang', function () {
+    return view('listbarang');
+});
+
 
 //admin barang
 
 Route::get('/admin/barang', function () {
-    return view('listbarang');
+    return view('admin/adminuser');
 });
 Route::put('/admin/barang', function () {
     return view('listbarang');
@@ -46,7 +62,7 @@ Route::delete('/admin/barang', function () {
 //admin persewaan
 
 Route::get('/admin/persewaan', function () {
-    return view('listbarang');
+    return view('admin/adminuser');
 });
 
 Route::put('/admin/persewaan', function () {
@@ -64,7 +80,7 @@ Route::delete('/admin/persewaan', function () {
 //admin user
 
 Route::get('/admin/user', function () {
-    return view('adminuser');
+    return view('admin/adminuser');
 });
 
 Route::put('/admin/user', function () {
@@ -78,3 +94,9 @@ Route::put('/admin/user', function () {
 Route::delete('/admin/user', function () {
     return view('listbarang');
 });
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
