@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\BarangController;
+use App\Http\Controllers\admin\SewaController;
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,76 +29,18 @@ Route::get('/barang', function () {
 });
 
 //admin dashboard
-Route::get('/admin', function () {
-    return view('admin/adminuser');
-});
-Route::put('/admin/barang', function () {
-    return view('listbarang');
-});
-
-// Route::push('/admin/barang/push', function () {
-//     return view('listbarang');
-// });
-
-Route::delete('/admin/barang', function () {
-    return view('listbarang');
-});
-
+Route::get("/admin", [\App\Http\Controllers\admin\HomeController::class, "index"]);
 
 //admin barang
-
-Route::get('/admin/barang', function () {
-    return view('admin/adminuser');
-});
-Route::put('/admin/barang', function () {
-    return view('listbarang');
-});
-
-// Route::push('/admin/barang/push', function () {
-//     return view('listbarang');
-// });
-
-Route::delete('/admin/barang', function () {
-    return view('listbarang');
-});
+Route::resource('/admin/barang', BarangController::class);
 
 //admin persewaan
-
-Route::get('/admin/persewaan', function () {
-    return view('admin/adminuser');
-});
-
-Route::put('/admin/persewaan', function () {
-    return view('listbarang');
-});
-
-// Route::push('/admin/persewaan', function () {
-//     return view('listbarang');
-// });
-
-Route::delete('/admin/persewaan', function () {
-    return view('listbarang');
-});
+Route::resource('/admin/persewaan', SewaController::class);
 
 //admin user
 
-Route::get('/admin/user', function () {
-    return view('admin/adminuser');
-});
+Route::resource('/admin/user', UserController::class);
 
-Route::put('/admin/user', function () {
-    return view('listbarang');
-});
-
-// Route::push('/admin/user', function () {
-//     return view('listbarang');
-// });
-
-Route::delete('/admin/user', function () {
-    return view('listbarang');
-});
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
