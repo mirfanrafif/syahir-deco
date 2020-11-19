@@ -72,11 +72,11 @@
                 <a class="nav-link" href="contact.html">Kontak</a></a>
               </li>
               <li class="nav-item">
-                <a href="#0" class="btn btn-primary white m-2" data-duration-in=".5" data-animation-in="fadeInUp"
+                <a href="/login" class="btn btn-primary white m-2" data-duration-in=".5" data-animation-in="fadeInUp"
                   data-delay-in=".5">Login</a>
               </li>
               <li class="nav-item">
-                <a href="#0" class="btn btn-primary solid m-2" data-duration-in=".5" data-animation-in="fadeInUp"
+                <a href="/register" class="btn btn-primary solid m-2" data-duration-in=".5" data-animation-in="fadeInUp"
                   data-delay-in=".5">Daftar Sekarang</a>
               </li>
             </ul>

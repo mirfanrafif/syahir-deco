@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -12,6 +12,6 @@ class UserController extends Controller
         # code...
         $user = DB::table('user')->get();
 
-        return view('adminuser',['user'=>$user])
+        return view('adminuser',['user'=>$user]);
     }
 }
