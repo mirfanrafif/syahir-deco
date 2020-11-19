@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\BarangController;
 use App\Http\Controllers\admin\SewaController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +29,20 @@ Route::get('/barang', function () {
     return view('listbarang');
 });
 
+//Register dan login
+Route::get('/register', [AuthController::class, 'register']);
+
+Route::post('/register', [AuthController::class, 'prosesRegister']);
+
+Route::get('/login', [AuthController::class, 'login']);
+
+Route::post('/login', [AuthController::class, 'prosesLogin']);
+
+Route::get('/logout', [AuthController::class, 'logout']);
+
+
 //admin dashboard
-Route::get("/admin", [\App\Http\Controllers\admin\HomeController::class, "index"]);
+Route::get("/admin", [\App\Http\Controllers\admin\HomeController::class, "index"])->middleware('AdminAuth');
 
 //admin barang
 Route::resource('/admin/barang', BarangController::class);
@@ -38,10 +51,8 @@ Route::resource('/admin/barang', BarangController::class);
 Route::resource('/admin/persewaan', SewaController::class);
 
 //admin user
-
 Route::resource('/admin/user', UserController::class);
 
+// Auth::routes();
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
