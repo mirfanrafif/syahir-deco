@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\BarangController;
 use App\Http\Controllers\admin\SewaController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\user\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,18 +41,20 @@ Route::post('/login', [AuthController::class, 'prosesLogin']);
 
 Route::get('/logout', [AuthController::class, 'logout']);
 
+Route::get('/user/sewa', [TransaksiController::class, 'index']);
+
 
 //admin dashboard
 Route::get("/admin", [\App\Http\Controllers\admin\HomeController::class, "index"])->middleware('AdminAuth');
 
 //admin barang
-Route::resource('/admin/barang', BarangController::class);
+Route::resource('/admin/barang', BarangController::class)->middleware('AdminAuth');
 
 //admin persewaan
-Route::resource('/admin/persewaan', SewaController::class);
+Route::resource('/admin/persewaan', SewaController::class)->middleware('AdminAuth');
 
 //admin user
-Route::resource('/admin/user', UserController::class);
+Route::resource('/admin/user', UserController::class)->middleware('AdminAuth');
 
 // Auth::routes();
 

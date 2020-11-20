@@ -26,7 +26,7 @@
   <!-- Slick-slider -->
   <link rel="stylesheet" href="{{ asset('plugins/slick/slick.css') }}">
   <!-- Style Swicther -->
-  <link id="style-switch" href="{{ asset('css/presets/preset1.css') }}" media="screen" rel="stylesheet" type="text/css">
+  <link id="style-switch" href="{{ asset('css/presets/preset3.css') }}" media="screen" rel="stylesheet" type="text/css">
   <!-- Main Stylesheet -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -236,7 +236,7 @@
   <!-- Waypoints -->
   <script type="text/javascript" src="{{ asset('plugins/waypoints.min.js') }}"></script>
 
-  <script src="plugins/google-map/gmap.js"></script>
+  <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
 
   <!-- Main Script -->
   <script src="{{ asset('js/script.js') }}"></script>

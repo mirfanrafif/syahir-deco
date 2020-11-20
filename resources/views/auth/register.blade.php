@@ -1,5 +1,7 @@
 @extends('templates.template-header')
 
+@section('title', 'Daftar')
+
 @section('main-content')
 <div class="row justify-content-center">
     <div class="col-md-8">
@@ -42,7 +44,8 @@
 
                     {{-- notelepon --}}
                     <div class="form-group row">
-                        <label for="notelepon" class="col-md-4 col-form-label text-md-right">{{ __('No. Telepon / HP') }}</label>
+                        <label for="notelepon"
+                            class="col-md-4 col-form-label text-md-right">{{ __('No. Telepon / HP') }}</label>
 
                         <div class="col-md-6">
                             <input id="notelepon" type="text"
