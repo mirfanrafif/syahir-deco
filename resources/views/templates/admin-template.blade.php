@@ -30,11 +30,14 @@
   <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
     <div class="app-header header-shadow">
       <div class="app-header__logo">
-        <div class="logo-src">
-          <img src="{{ asset('/images/logo-inverse.png') }}"></img></div>
+        <div class="logo-src"></div>
         <div class="header__pane ml-auto">
           <div>
-            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+            <button
+              type="button"
+              class="hamburger close-sidebar-btn hamburger--elastic"
+              data-class="closed-sidebar"
+            >
               <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
               </span>
@@ -133,55 +136,16 @@
         </div>
         <div class="scrollbar-sidebar">
           <div class="app-sidebar__inner">
-            <ul class="vertical-nav-menu">
-              <li class="app-sidebar__heading">Dashboards</li>
-              <li>
-                <a href="index.html" class="mm-active">
-                  Dashboard
-                </a>
-              </li>
-              <li class="app-sidebar__heading">
-                Admin
-              </li>
-              <li>
-                <a href="tables-regular.html">
-                  <i class="metismenu-icon pe-7s-display2"></i>
-                  Barang
-                </a>
-              </li>
-              <li>
-                <a href="tables-regular.html">
-                  <i class="metismenu-icon pe-7s-display2"></i>
-                  Persewaan
-                </a>
-              </li>
-              <li>
-                <a href="tables-regular.html">
-                  <i class="metismenu-icon pe-7s-display2"></i>
-                  User
-                </a>
-              </li>
-
-            </ul>
+            @yield('navigation')
+            
           </div>
         </div>
       </div>
       <div class="app-main__outer">
         <div class="app-main__inner">
-          <div class="app-page-title">
-            <div class="page-title-wrapper">
-              <div class="page-title-heading">
-                <div>
-                  @yield('title')
-                  <div class="page-title-subheading">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quas non sunt vero! Autem
-                    quibusdam vel libero iure aut. Nobis non eius repellat nesciunt et mollitia deleniti illo cum amet?
-                  </div>
-                </div>
-              </div>
 
-            </div>
-          </div>
+          @yield('pagetitle')
+          
 
           @yield('content')
 
