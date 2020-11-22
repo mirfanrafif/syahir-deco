@@ -52,12 +52,14 @@ class AuthController extends Controller
             'password' => ['required']
         ]);
 
-        $data = User::where('email', $request['email'])->first();
-
         $credentials = $request->only('email', 'password', 'level');
 
         if(Auth::attempt($credentials)) {
-            return redirect('/admin');
+            if (Auth::user()->level == 'admin') {
+                return redirect('/admin');
+            }else {
+                return redirect('/');
+            }
         }else{
             return back();
         }

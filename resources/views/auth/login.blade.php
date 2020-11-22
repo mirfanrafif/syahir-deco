@@ -1,6 +1,6 @@
-@extends('templates.template-header')
+@extends('templates.home')
 @section('title', 'Login')
-@section('main-content')
+@section('content')
 <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 50px;">
     <div class="col-md-8">
         <div class="card">
