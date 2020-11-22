@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class UserController extends Controller
 {
     /**
@@ -14,7 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view("admin/adminuser");
+        $user = DB::table('user')->get();
+
+        return view('admin/user/adminuser', ['user' => $user]);
+
+        // return view("admin/adminuser");
     }
 
     /**
@@ -25,6 +31,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('admin/user/tambahuser');
     }
 
     /**
@@ -36,6 +43,21 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        DB::table('user')->insert([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => $request->password,
+            'level' => $request->level,
+            'notelepon' => $request->phone,
+            'noktp' => $request->ktp,
+            'alamat' => $request->alamat
+        ]);
+        // $shark = new shark;
+        // $shark->name       = Input::get('name');
+        // $shark->email      = Input::get('email');
+        // $shark->shark_level = Input::get('shark_level');
+        // $shark->save();
+        return redirect('/admin/user')->with('status', 'Sukses');
     }
 
     /**
@@ -58,6 +80,8 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user = DB::table('user')->where('id', $id)->get();
+        return view('admin/user/edituser', ['user' => $user]);
     }
 
     /**

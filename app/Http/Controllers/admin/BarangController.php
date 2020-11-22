@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BarangController extends Controller
 {
@@ -14,7 +15,9 @@ class BarangController extends Controller
      */
     public function index()
     {
-        return view("admin/adminuser");
+        $barang = DB::table('barang')->get();
+
+        return view('admin/baranguser', ['barang' => $barang]);
     }
 
     /**

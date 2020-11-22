@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SewaController extends Controller
 {
@@ -14,7 +15,11 @@ class SewaController extends Controller
      */
     public function index()
     {
-        return view("admin/adminuser");
+        $sewa = DB::table('persewaan')->get();
+        $barang = DB::table('barang')->get();
+        $user = DB::table('user')->get();
+
+        return view('admin/sewauser', ['sewa' => $sewa, 'barang' => $barang, 'user' => $user]);
     }
 
     /**
