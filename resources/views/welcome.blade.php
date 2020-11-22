@@ -1,349 +1,433 @@
-<!-- Header start -->
-@extends('templates.welcome-template')
+@extends('templates.home')
 
-@section('title', 'Welcome Page')
+@section('title', 'landing Page')
 
 @section('content')
 
-<!--/ Header end -->
+<!--===============================
+=            Hero Area            =
+================================-->
 
-<!-- Slider start -->
-<section class="hero-slider text-center">
-    <div class="slider-inner h-100">
-        <div class="slider-item" data-dot="&lt;i class=&quot;fa fa-bicycle&quot;&gt;&lt;/i&gt; Invent"
-            style="background-image: url(images/slider/bg1.jpg);">
-            <div class="overlay2">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <h2 data-duration-in=".3" data-animation-in="fadeInUp">Need To Invent The Future!
-                            </h2>
-                            <h3 class="mb-4" data-duration-in=".4" data-animation-in="fadeInUp" data-delay-in=".4">We
-                                Making Difference To Great Things Possible</h3>
-                            <a href="#0" class="btn btn-primary white m-2" data-duration-in=".5"
-                                data-animation-in="fadeInUp" data-delay-in=".5">Start Now</a>
-                            <a href="#0" class="btn btn-primary solid m-2" data-duration-in=".6"
-                                data-animation-in="fadeInUp" data-delay-in=".6">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="hero-area bg-1 text-center overly">
+	<!-- Container Start -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Header Contetnt -->
+				<div class="content-block">
+					<h1>Buy & Sell Near You </h1>
+					<p>Join the millions who buy and sell from each other <br> everyday in local communities around the world
+					</p>
+					<div class="short-popular-category-list text-center">
+						<h2>Popular Category</h2>
+						<ul class="list-inline">
+							<li class="list-inline-item">
+								<a href="category.html"><i class="fa fa-bed"></i> Hotel</a></li>
+							<li class="list-inline-item">
+								<a href="category.html"><i class="fa fa-grav"></i> Fitness</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="category.html"><i class="fa fa-car"></i> Cars</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="category.html"><i class="fa fa-cutlery"></i> Restaurants</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="category.html"><i class="fa fa-coffee"></i> Cafe</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<!-- Advance Search -->
+				<div class="advance-search">
+					<div class="container">
+						<div class="row justify-content-center">
+							<div class="col-lg-12 col-md-12 align-content-center">
+								<form>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<input type="text" class="form-control my-2 my-lg-1" id="inputtext4"
+												placeholder="What are you looking for">
+										</div>
+										<div class="form-group col-md-3">
+											<select class="w-100 form-control mt-lg-1 mt-md-2">
+												<option>Category</option>
+												<option value="1">Top rated</option>
+												<option value="2">Lowest Price</option>
+												<option value="4">Highest Price</option>
+											</select>
+										</div>
+										<div class="form-group col-md-3">
+											<input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="Location">
+										</div>
+										<div class="form-group col-md-2 align-self-center">
+											<button type="submit" class="btn btn-primary">Search Now</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Container End -->
 </section>
-<!--/ Slider end -->
 
-<!-- Service box start -->
-<section id="service" class="service angle">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 heading">
-                <span class="title-icon float-left"><i class="fa fa-cogs"></i></span>
-                <h2 class="title">Layanan Kami
-                    <span class="title-desc">
-                        A Quality Experience Team with 4 years experience
-                    </span>
-                </h2>
-            </div>
-        </div><!-- Title row end -->
+<!--===================================
+=            Client Slider            =
+====================================-->
 
-        <div class="row">
-            <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay=".5s">
-                <div class="service-content text-center">
-                    <span class="service-icon icon-pentagon"><i class="fa fa-tachometer"></i></span>
-                    <h3>Web Design</h3>
-                    <p>High Life narwhal, banh mi PBR single-origin coffee Odd Future actually aliqua polaroid
-                        befor</p>
-                </div>
-            </div>
-            <!--/ End first service -->
 
-            <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay=".8s">
-                <div class="service-content text-center">
-                    <span class="service-icon icon-pentagon"><i class="fa fa-android"></i></span>
-                    <h3>Apps Development</h3>
-                    <p>Food truck master cleanse mixtape minim Portland, cardigan stumptown chambray swag</p>
-                </div>
-            </div>
-            <!--/ End Second service -->
+<!--===========================================
+=            Popular deals section            =
+============================================-->
 
-            <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="1.1s">
-                <div class="service-content text-center">
-                    <span class="service-icon icon-pentagon"><i class="fa fa-shopping-cart"></i></span>
-                    <h3>eCommerce Websites</h3>
-                    <p>Neutra Thundercats craft beer, listicle meggings bicycle rights 90's XOXO beard cardiga
-                    </p>
-                </div>
-            </div>
-            <!--/ End Third service -->
+<section class="popular-deals section bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">
+					<h2>Trending Adds</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, magnam.</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<!-- offer 01 -->
+			<div class="col-lg-12">
+				<div class="trending-ads-slide">
+					<div class="col-sm-12 col-lg-4">
+						<!-- product card -->
+						<div class="product-item bg-light">
+							<div class="card">
+								<div class="thumb-content">
+									<!-- <div class="price">$200</div> -->
+									<a href="single.html">
+										<img class="card-img-top img-fluid" src="images/products/products-1.jpg" alt="Card image cap">
+									</a>
+								</div>
+								<div class="card-body">
+									<h4 class="card-title"><a href="single.html">11inch Macbook Air</a></h4>
+									<ul class="list-inline product-meta">
+										<li class="list-inline-item">
+											<a href="single.html"><i class="fa fa-folder-open-o"></i>Electronics</a>
+										</li>
+										<li class="list-inline-item">
+											<a href="#"><i class="fa fa-calendar"></i>26th December</a>
+										</li>
+									</ul>
+									<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!
+									</p>
+									<div class="product-ratings">
+										<ul class="list-inline">
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
 
-            <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="1.4s">
-                <div class="service-content text-center">
-                    <span class="service-icon icon-pentagon"><i class="fa fa-lightbulb-o"></i></span>
-                    <h3>Design for Startups</h3>
-                    <p>We design beautiful modern engaging websites that always latest responsive technologies.
-                    </p>
-                </div>
-            </div>
-            <!--/ End 4th service -->
-        </div><!-- Content row end -->
-    </div>
-    <!--/ Container end -->
+
+
+					</div>
+					<div class="col-sm-12 col-lg-4">
+						<!-- product card -->
+						<div class="product-item bg-light">
+							<div class="card">
+								<div class="thumb-content">
+									<!-- <div class="price">$200</div> -->
+									<a href="single.html">
+										<img class="card-img-top img-fluid" src="images/products/products-2.jpg" alt="Card image cap">
+									</a>
+								</div>
+								<div class="card-body">
+									<h4 class="card-title"><a href="single.html">Full Study Table Combo</a></h4>
+									<ul class="list-inline product-meta">
+										<li class="list-inline-item">
+											<a href="single.html"><i class="fa fa-folder-open-o"></i>Furnitures</a>
+										</li>
+										<li class="list-inline-item">
+											<a href="#"><i class="fa fa-calendar"></i>26th December</a>
+										</li>
+									</ul>
+									<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!
+									</p>
+									<div class="product-ratings">
+										<ul class="list-inline">
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+					<div class="col-sm-12 col-lg-4">
+						<!-- product card -->
+						<div class="product-item bg-light">
+							<div class="card">
+								<div class="thumb-content">
+									<!-- <div class="price">$200</div> -->
+									<a href="single.html">
+										<img class="card-img-top img-fluid" src="images/products/products-3.jpg" alt="Card image cap">
+									</a>
+								</div>
+								<div class="card-body">
+									<h4 class="card-title"><a href="single.html">11inch Macbook Air</a></h4>
+									<ul class="list-inline product-meta">
+										<li class="list-inline-item">
+											<a href="single.html"><i class="fa fa-folder-open-o"></i>Electronics</a>
+										</li>
+										<li class="list-inline-item">
+											<a href="#"><i class="fa fa-calendar"></i>26th December</a>
+										</li>
+									</ul>
+									<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!
+									</p>
+									<div class="product-ratings">
+										<ul class="list-inline">
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+					<div class="col-sm-12 col-lg-4">
+						<!-- product card -->
+						<div class="product-item bg-light">
+							<div class="card">
+								<div class="thumb-content">
+									<!-- <div class="price">$200</div> -->
+									<a href="single.html">
+										<img class="card-img-top img-fluid" src="images/products/products-2.jpg" alt="Card image cap">
+									</a>
+								</div>
+								<div class="card-body">
+									<h4 class="card-title"><a href="single.html">Full Study Table Combo</a></h4>
+									<ul class="list-inline product-meta">
+										<li class="list-inline-item">
+											<a href="single.html"><i class="fa fa-folder-open-o"></i>Furnitures</a>
+										</li>
+										<li class="list-inline-item">
+											<a href="#"><i class="fa fa-calendar"></i>26th December</a>
+										</li>
+									</ul>
+									<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!
+									</p>
+									<div class="product-ratings">
+										<ul class="list-inline">
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
 </section>
-<!--/ Service box end -->
 
-<!-- Portfolio start -->
-<section id="portfolio" class="portfolio">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 heading">
-                <span class="title-icon classic float-left"><i class="fa fa-suitcase"></i></span>
-                <h2 class="title classic">Galeri Kami</h2>
-            </div>
-        </div> <!-- Title row end -->
 
-        <!--Isotope filter start -->
-        <div class="row text-right">
-            <div class="col-12">
-                <div class="isotope-nav" data-isotope-nav="isotope">
-                    <ul>
-                        <li><a href="#" class="active" data-filter="*">All</a></li>
-                        <li><a href="#" data-filter=".web-design">Web Design</a></li>
-                        <li><a href="#" data-filter=".development">Development</a></li>
-                        <li><a href="#" data-filter=".joomla">Joomla</a></li>
-                        <li><a href="#" data-filter=".wordpress">Wordpress</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- Isotope filter end -->
-    </div>
 
-    <div class="container-fluid">
-        <div class="row isotope" id="isotope">
-            <div class="col-sm-3 web-design isotope-item">
-                <div class="grid">
-                    <figure class="m-0 effect-oscar">
-                        <img src="images/portfolio/portfolio1.jpg" alt="">
-                        <figcaption>
-                            <h3>Startup Business</h3>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto"
-                                href="images/portfolio/portfolio-bg1.jpg"><i class="fa fa-search"></i></a>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div><!-- Isotope item end -->
+<!--==========================================
+=            All Category Section            =
+===========================================-->
 
-            <div class="col-sm-3 development isotope-item">
-                <div class="grid">
-                    <figure class="m-0 effect-oscar">
-                        <img src="images/portfolio/portfolio2.jpg" alt="">
-                        <figcaption>
-                            <h3>Easy to Lanunch</h3>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto"
-                                href="images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div><!-- Isotope item end -->
+<section class=" section">
+	<!-- Container Start -->
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<!-- Section title -->
+				<div class="section-title">
+					<h2>All Categories</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
+				</div>
+				<div class="row">
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-laptop icon-bg-1"></i>
+								<h4>Electronics</h4>
+							</div>
+							<ul class="category-list">
+								<li><a href="category.html">Laptops <span>93</span></a></li>
+								<li><a href="category.html">Iphone <span>233</span></a></li>
+								<li><a href="category.html">Microsoft <span>183</span></a></li>
+								<li><a href="category.html">Monitors <span>343</span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-apple icon-bg-2"></i>
+								<h4>Restaurants</h4>
+							</div>
+							<ul class="category-list">
+								<li><a href="category.html">Cafe <span>393</span></a></li>
+								<li><a href="category.html">Fast food <span>23</span></a></li>
+								<li><a href="category.html">Restaurants <span>13</span></a></li>
+								<li><a href="category.html">Food Track<span>43</span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-home icon-bg-3"></i>
+								<h4>Real Estate</h4>
+							</div>
+							<ul class="category-list">
+								<li><a href="category.html">Farms <span>93</span></a></li>
+								<li><a href="category.html">Gym <span>23</span></a></li>
+								<li><a href="category.html">Hospitals <span>83</span></a></li>
+								<li><a href="category.html">Parolurs <span>33</span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-shopping-basket icon-bg-4"></i>
+								<h4>Shoppings</h4>
+							</div>
+							<ul class="category-list">
+								<li><a href="category.html">Mens Wears <span>53</span></a></li>
+								<li><a href="category.html">Accessories <span>212</span></a></li>
+								<li><a href="category.html">Kids Wears <span>133</span></a></li>
+								<li><a href="category.html">It & Software <span>143</span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-briefcase icon-bg-5"></i>
+								<h4>Jobs</h4>
+							</div>
+							<ul class="category-list">
+								<li><a href="category.html">It Jobs <span>93</span></a></li>
+								<li><a href="category.html">Cleaning & Washing <span>233</span></a></li>
+								<li><a href="category.html">Management <span>183</span></a></li>
+								<li><a href="category.html">Voluntary Works <span>343</span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-car icon-bg-6"></i>
+								<h4>Vehicles</h4>
+							</div>
+							<ul class="category-list">
+								<li><a href="category.html">Bus <span>193</span></a></li>
+								<li><a href="category.html">Cars <span>23</span></a></li>
+								<li><a href="category.html">Motobike <span>33</span></a></li>
+								<li><a href="category.html">Rent a car <span>73</span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-paw icon-bg-7"></i>
+								<h4>Pets</h4>
+							</div>
+							<ul class="category-list">
+								<li><a href="category.html">Cats <span>65</span></a></li>
+								<li><a href="category.html">Dogs <span>23</span></a></li>
+								<li><a href="category.html">Birds <span>113</span></a></li>
+								<li><a href="category.html">Others <span>43</span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
 
-            <div class="col-sm-3 joomla isotope-item">
-                <div class="grid">
-                    <figure class="m-0 effect-oscar">
-                        <img src="images/portfolio/portfolio3.jpg" alt="">
-                        <figcaption>
-                            <h3>Your Business</h3>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto"
-                                href="images/portfolio/portfolio-bg3.jpg"><i class="fa fa-search"></i></a>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div><!-- Isotope item end -->
+							<div class="header">
+								<i class="fa fa-laptop icon-bg-8"></i>
+								<h4>Services</h4>
+							</div>
+							<ul class="category-list">
+								<li><a href="category.html">Cleaning <span>93</span></a></li>
+								<li><a href="category.html">Car Washing <span>233</span></a></li>
+								<li><a href="category.html">Clothing <span>183</span></a></li>
+								<li><a href="category.html">Business <span>343</span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
 
-            <div class="col-sm-3 wordpress isotope-item">
-                <div class="grid">
-                    <figure class="m-0 effect-oscar">
-                        <img src="images/portfolio/portfolio4.jpg" alt="">
-                        <figcaption>
-                            <h3>Prego Match</h3>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto"
-                                href="images/portfolio/portfolio-bg4.jpg"><i class="fa fa-search"></i></a>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div><!-- Isotope item end -->
 
-            <div class="col-sm-3 joomla isotope-item">
-                <div class="grid">
-                    <figure class="m-0 effect-oscar">
-                        <img src="images/portfolio/portfolio5.jpg" alt="">
-                        <figcaption>
-                            <h3>Fashion Brand</h3>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto"
-                                href="images/portfolio/portfolio-bg5.jpg"><i class="fa fa-search"></i></a>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div><!-- Isotope item end -->
-
-            <div class="col-sm-3 development isotope-item">
-                <div class="grid">
-                    <figure class="m-0 effect-oscar">
-                        <img src="images/portfolio/portfolio6.jpg" alt="">
-                        <figcaption>
-                            <h3>The Insidage</h3>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto"
-                                href="images/portfolio/portfolio-bg1.jpg"><i class="fa fa-search"></i></a>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div><!-- Isotope item end -->
-
-            <div class="col-sm-3 development isotope-item">
-                <div class="grid">
-                    <figure class="m-0 effect-oscar">
-                        <img src="images/portfolio/portfolio7.jpg" alt="">
-                        <figcaption>
-                            <h3>Light Carpet</h3>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto"
-                                href="images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div><!-- Isotope item end -->
-
-            <div class="col-sm-3 development isotope-item">
-                <div class="grid">
-                    <figure class="m-0 effect-oscar">
-                        <img src="images/portfolio/portfolio8.jpg" alt="">
-                        <figcaption>
-                            <h3>Amazing Keyboard</h3>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto"
-                                href="images/portfolio/portfolio-bg3.jpg"><i class="fa fa-search"></i></a>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div><!-- Isotope item end -->
-        </div><!-- Content row end -->
-    </div><!-- Container end -->
-</section><!-- Portfolio end -->
-
-<!-- Feature box start -->
-<section id="feature" class="feature">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 heading">
-                <span class="title-icon float-left"><i class="fa fa-cogs"></i></span>
-                <h2 class="title">Mengapa Kami
-                    <span class="title-desc">
-                        A Quality Experience Team with 4 years experience
-                    </span>
-                </h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="feature-box col-sm-4 wow fadeInDown" data-wow-delay=".5s">
-                <span class="feature-icon float-left"><i class="fa fa-heart-o"></i></span>
-                <div class="feature-content">
-                    <h3>Clean &amp; Modern Design</h3>
-                    <p>Bras urna felis accumsan at ultrde cesid posuere masa socis nautoque penat</p>
-                </div>
-            </div>
-            <!--/ End first featurebox -->
-
-            <div class="feature-box col-sm-4 wow fadeInDown" data-wow-delay=".5s">
-                <span class="feature-icon float-left"><i class="fa fa-codepen"></i></span>
-                <div class="feature-content">
-                    <h3>Useful Shortcodes</h3>
-                    <p>High Life narwhal, banh mi PBR single-origin coffee Odd Future actually aliqua</p>
-                </div>
-            </div>
-            <!--/ End 2nd featurebox -->
-
-            <div class="feature-box col-sm-4 wow fadeInDown" data-wow-delay=".5s">
-                <span class="feature-icon float-left"><i class="fa fa-film"></i></span>
-                <div class="feature-content">
-                    <h3>Parallax Section</h3>
-                    <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut</p>
-                </div>
-            </div>
-            <!--/ End 3rd featurebox -->
-        </div><!-- Content row end -->
-
-        <div class="gap-40"></div>
-
-        <div class="row">
-            <div class="feature-box col-sm-4 wow fadeInDown" data-wow-delay=".5s">
-                <span class="feature-icon float-left"><i class="fa fa-newspaper-o"></i></span>
-                <div class="feature-content">
-                    <h3>Multipurpose Concept</h3>
-                    <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut</p>
-                </div>
-            </div>
-            <!--/ End 1st featurebox -->
-
-            <div class="feature-box col-sm-4 wow fadeInDown" data-wow-delay=".5s">
-                <span class="feature-icon float-left"><i class="fa fa-desktop"></i></span>
-                <div class="feature-content">
-                    <h3>Responsive Layout</h3>
-                    <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut</p>
-                </div>
-            </div>
-            <!--/ End 2nd featurebox -->
-
-            <div class="feature-box col-sm-4 wow fadeInDown" data-wow-delay=".5s">
-                <span class="feature-icon float-left"><i class="fa fa-pagelines"></i></span>
-                <div class="feature-content">
-                    <h3>Light wight Performance</h3>
-                    <p>High Life narwhal, banh mi PBR single-origin coffee Odd Future actually aliqua</p>
-                </div>
-            </div>
-            <!--/ End 3rd featurebox -->
-
-        </div><!-- Content row end -->
-
-        <div class="gap-40"></div>
-
-        <div class="row">
-            <div class="feature-box col-sm-4 wow fadeInDown" data-wow-delay=".5s">
-                <span class="feature-icon float-left"><i class="fa fa-recycle"></i></span>
-                <div class="feature-content">
-                    <h3>Free Lifetime Updates</h3>
-                    <p>Bras urna felis accumsan at ultrde cesid posuere masa socis nautoque penat</p>
-                </div>
-            </div>
-            <!--/ End first featurebox -->
-
-            <div class="feature-box col-sm-4 wow fadeInDown" data-wow-delay=".5s">
-                <span class="feature-icon float-left"><i class="fa fa-diamond"></i></span>
-                <div class="feature-content">
-                    <h3>Endless Possibilites</h3>
-                    <p>High Life narwhal, banh mi PBR single-origin coffee Odd Future actually aliqua</p>
-                </div>
-            </div>
-            <!--/ End first featurebox -->
-
-            <div class="feature-box col-sm-4 wow fadeInDown" data-wow-delay=".5s">
-                <span class="feature-icon float-left"><i class="fa fa-whatsapp"></i></span>
-                <div class="feature-content">
-                    <h3>24/7 Live Support</h3>
-                    <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut</p>
-                </div>
-            </div>
-            <!--/ End first featurebox -->
-        </div><!-- Content row end -->
-
-    </div>
-    <!--/ Container end -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Container End -->
 </section>
-<!--/ Feature box end -->
 
 
+<!--====================================
+=            Call to Action            =
+=====================================-->
+
+<section class="call-to-action overly bg-3 section-sm">
+	<!-- Container Start -->
+	<div class="container">
+		<div class="row justify-content-md-center text-center">
+			<div class="col-md-8">
+				<div class="content-holder">
+					<h2>Start today to get more exposure and
+						grow your business</h2>
+					<ul class="list-inline mt-30">
+						<li class="list-inline-item"><a class="btn btn-main" href="ad-listing.html">Add Listing</a></li>
+						<li class="list-inline-item"><a class="btn btn-secondary" href="category.html">Browser Listing</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Container End -->
+</section>
 @endsection

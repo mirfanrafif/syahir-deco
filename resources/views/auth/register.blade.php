@@ -1,8 +1,8 @@
-@extends('templates.template-header')
+@extends('templates.home')
 
 @section('title', 'Daftar')
 
-@section('main-content')
+@section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card" style="margin-top: 50px; margin-bottom: 50px;">

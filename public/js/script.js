@@ -1,290 +1,230 @@
-/*
-  * @package Bizcraft
-  * @subpackage Bizcraft HTML
-  * 
-  * Template Scripts
-  * Created by Tripples
-  
-   1.    Style Switcher
-   2.    Navigation
-   3.    Fixed Header
-   4.    Main Slideshow (Carousel)
-   5.    Counter
-   6.    Owl Carousel
-   7.    Flex Slider
-   8.    Wow Animation
-   10.   Video Background
-   11.   Back To Top
-
-  
-*/
-
-
-jQuery(function ($) {
+(function ($) {
   'use strict';
 
-
-  /* ----------------------------------------------------------- */
-  /*  Style Switcher
-  /* ----------------------------------------------------------- */
-    $(document).ready(function () {
-      $('.style-switch-button').click(function () {
-        $('.style-switch-wrapper').toggleClass('active');
+  //  Count Up
+  function counter() {
+    var oTop;
+    if ($('.counter').length !== 0) {
+      oTop = $('.counter').offset().top - window.innerHeight;
+    }
+    if ($(window).scrollTop() > oTop) {
+      $('.counter').each(function () {
+        var $this = $(this),
+          countTo = $this.attr('data-count');
+        $({
+          countNum: $this.text()
+        }).animate({
+          countNum: countTo
+        }, {
+          duration: 1000,
+          easing: 'swing',
+          step: function () {
+            $this.text(Math.floor(this.countNum));
+          },
+          complete: function () {
+            $this.text(this.countNum);
+          }
+        });
       });
-      $('a.close-styler').click(function () {
-        $('.style-switch-wrapper').removeClass('active');
-      });
-    });
-
-
-
-  /* ----------------------------------------------------------- */
-  /*  Fixed header
-  /* ----------------------------------------------------------- */
-
+    }
+  }
   $(window).on('scroll', function () {
-
-    if ($(window).scrollTop() > 100) {
-
-      $('.header').addClass('header-solid animated fadeInDown');
-    } else {
-
-      $('.header').removeClass('header-solid animated fadeInDown');
-
-    }
-
+    counter();
   });
 
-  $(window).on('scroll', function () {
-
-    if ($(window).scrollTop() > 200) {
-
-      $('.header2').addClass('header-bgnone animated fadeInDown');
-    } else {
-
-      $('.header2').removeClass('header-bgnone animated fadeInDown');
-
-    }
-
-  });
-
-
-
-  /* ----------------------------------------------------------- */
-  /*  Main slideshow
-  /* ----------------------------------------------------------- */
-
-  /* Home 1 */
-
-  $('.hero-slider > .slider-inner').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    dots: true,
-    customPaging: function(slider, i) { 
-      return $(slider.$slides[i]).data('dot');
-    },
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000
-  });
-  $('.hero-slider > .slider-inner').slickAnimation();
-
-
-  /* Home 2 */
-  $('.flexSlideshow').flexslider({
-    slideshowSpeed: 5000,
-    animationSpeed: 600
-  });
-
-  /* Home 3 and 4 */
-
-  $('#main-slide').carousel({
-    pause: true,
-    interval: 100000
-  });
-
-
-  /* ----------------------------------------------------------- */
-  /*  Counter
-  /* ----------------------------------------------------------- */
-
-  $('.counter').counterUp({
-    delay: 10,
-    time: 1000
-  });
-
-
-
-  /* ----------------------------------------------------------- */
-  /*  Owl Carousel
-  /* ----------------------------------------------------------- */
-
-
-  //Testimonial
-
-  $('#testimonial-carousel').owlCarousel({
-
-    navigation: false, // Show next and prev buttons
-    slideSpeed: 600,
-    pagination: true,
-    singleItem: true
-
-  });
-
-  // Custom Navigation Events
-  var owl = $('#testimonial-carousel');
-
-
-  // Custom Navigation Events
-  $('.next').click(function () {
-    owl.trigger('owl.next');
-  });
-  $('.prev').click(function () {
-    owl.trigger('owl.prev');
-  });
-  $('.play').click(function () {
-    owl.trigger('owl.play', 1000); //owl.play event accept autoPlay speed as second parameter
-  });
-  $('.stop').click(function () {
-    owl.trigger('owl.stop');
-  });
-
-
-  //Clients
-
-  $('#client-carousel').owlCarousel({
-
-    navigation: false, // Show next and prev buttons
-    slideSpeed: 400,
-    pagination: false,
-    items: 5,
-    rewindNav: true,
-    itemsDesktop: [1199, 3],
-    itemsDesktopSmall: [979, 3],
-    stopOnHover: true,
-    autoPlay: true
-
-  });
-
-  //App gallery
-  $('#app-gallery-carousel').owlCarousel({
-
-    navigation: false, // Show next and prev buttons
-    slideSpeed: 400,
-    pagination: true,
-    items: 4,
-    rewindNav: true,
-    itemsDesktop: [1199, 3],
-    itemsDesktopSmall: [979, 3],
-    stopOnHover: true
-  });
-
-
-
-  /* ----------------------------------------------------------- */
-  /*  Flex slider
-  /* ----------------------------------------------------------- */
-
-  //Second item slider
-  $(window).load(function () {
-    $('.flexSlideshow').flexslider({
-      animation: 'fade',
-      controlNav: false,
-      directionNav: true,
-      slideshowSpeed: 8000
-    });
-  });
-
-
-  //Portfolio item slider
-  $(window).load(function () {
-    $('.flexportfolio').flexslider({
-      animation: 'fade',
-      controlNav: false,
-      directionNav: true,
-      slideshowSpeed: 8000
-    });
-  });
-
-
-  /* ----------------------------------------------------------- */
-  /*  Animation
-  /* ----------------------------------------------------------- */
-  //Wow
-  new WOW().init();
-
-
-  /* ----------------------------------------------------------- */
-  /*  Prettyphoto
-  /* ----------------------------------------------------------- */
-
-  $('a[data-rel^=\'prettyPhoto\']').prettyPhoto();
-
-
-  /* ----------------------------------------------------------- */
-  /* Video background
-  /* ----------------------------------------------------------- */
-
-  var resizeVideoBackground = function () {
-
-    $('.video-background').each(function (i, el) {
-      var $el = $(el),
-        $section = $el.parent(),
-        min_w = 300,
-        video_w = 16,
-        video_h = 9,
-        section_w = $section.outerWidth(),
-        section_h = $section.outerHeight(),
-        scale_w = section_w / video_w,
-        scale_h = section_h / video_h,
-        scale = scale_w > scale_h ? scale_w : scale_h,
-        new_video_w, new_video_h, offet_top, offet_left;
-
-
-      if (scale * video_w < min_w) {
-        scale = min_w / video_w;
-      }
-
-      new_video_w = scale * video_w;
-      new_video_h = scale * video_h;
-      offet_left = (new_video_w - section_w) / 2 * -1;
-      offet_top = (new_video_h - section_h) / 2 * -1;
-
-      $el.css('width', new_video_w);
-      $el.css('height', new_video_h);
-      $el.css('marginTop', offet_top);
-      $el.css('marginLeft', offet_left);
-    });
-
-  };
-
-  $(window).on('resize', function () {
-    resizeVideoBackground();
-  });
-
-  resizeVideoBackground();
-
-  /* ----------------------------------------------------------- */
-  /*  Back to top
-  /* ----------------------------------------------------------- */
-
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 50) {
-      $('#back-to-top').fadeIn();
-    } else {
-      $('#back-to-top').fadeOut();
-    }
-  });
-  // scroll body to 0px on click
-  $('#back-to-top').click(function () {
-    $('#back-to-top').tooltip('hide');
-    $('body,html').animate({
+  // bottom to top
+  $('#top').click(function () {
+    $('html, body').animate({
       scrollTop: 0
-    }, 800);
+    }, 'slow');
     return false;
   });
+  // bottom to top
 
-  $('#back-to-top').tooltip('hide');
+  $(document).on('ready', function () {
 
-});
+    // Nice Select
+    $('select').niceSelect();
+    // -----------------------------
+    //  Client Slider
+    // -----------------------------
+    $('.category-slider').slick({
+      slidesToShow: 8,
+      infinite: true,
+      arrows: false,
+      autoplay: false,
+      autoplaySpeed: 2000
+    });
+    // -----------------------------
+    //  Select Box
+    // -----------------------------
+    // $('.select-box').selectbox();
+    // -----------------------------
+    //  Video Replace
+    // -----------------------------
+    $('.video-box img').click(function () {
+      var video = '<iframe allowfullscreen src="' + $(this).attr('data-video') + '"></iframe>';
+      $(this).replaceWith(video);
+    });
+    // -----------------------------
+    //  Coupon type Active switch
+    // -----------------------------
+    $('.coupon-types li').click(function () {
+      $('.coupon-types li').not(this).removeClass('active');
+      $(this).addClass('active');
+    });
+    // -----------------------------
+    // Datepicker Init
+    // -----------------------------
+    $('.input-group.date').datepicker({
+      format: 'dd/mm/yy'
+    });
+    // -----------------------------
+    // Datepicker Init
+    // -----------------------------
+
+    // -----------------------------
+    // Button Active Toggle
+    // -----------------------------
+    $('.btn-group > .btn').click(function () {
+      $(this).find('i').toggleClass('btn-active');
+    });
+    // -----------------------------
+    // Coupon Type Select
+    // -----------------------------
+    $('#online-code').click(function () {
+      $('.code-input').fadeIn(500);
+    });
+    $('#store-coupon, #online-sale').click(function () {
+      $('.code-input').fadeOut(500);
+    });
+    /***ON-LOAD***/
+    jQuery(window).on('load', function () {
+
+    });
+
+  });
+
+  // niceSelect
+
+  $('select:not(.ignore)').niceSelect();
+
+  // blog post-slider
+  $('.post-slider').slick({
+    dots: false,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    fade: true
+  });
+
+  // Client Slider 
+  $('.category-slider').slick({
+    dots: false,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    nextArrow: '<i class="fa fa-chevron-right arrow-right"></i>',
+    prevArrow: '<i class="fa fa-chevron-left arrow-left"></i>',
+    responsive: [{
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows:false
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+
+  // trending-ads-slide 
+
+  $('.trending-ads-slide').slick({
+    dots: false,
+    arrows: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 800,
+    responsive: [{
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+
+
+  // product-slider
+  $('.product-slider').slick({
+    dots: true,
+    arrows: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: false,
+    nextArrow: '<i class="fa fa-chevron-right arrow-right"></i>',
+    prevArrow: '<i class="fa fa-chevron-left arrow-left"></i>',
+    customPaging: function (slider, i) {
+      var image = $(slider.$slides[i]).data('image');
+      return '<img class="img-fluid" src="' + image + '" alt="product-img">';
+    }
+  });
+
+
+
+  // tooltip
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+
+     // bootstrap slider range
+  $('.range-track').slider({});
+  $('.range-track').on('slide', function (slideEvt) {
+    $('.value').text('$' + slideEvt.value[0] + ' - ' + '$' + slideEvt.value[1]);
+  });
+
+
+})(jQuery);

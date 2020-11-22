@@ -41,7 +41,9 @@ Route::post('/login', [AuthController::class, 'prosesLogin']);
 
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/user/sewa', [TransaksiController::class, 'index']);
+
+//user sewa
+Route::get('/user/sewa', [TransaksiController::class, 'index'])->middleware('UserAuth');
 
 
 //admin dashboard

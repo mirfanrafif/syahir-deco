@@ -9,6 +9,6 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        return view('user.transaksi.index');
+        return view('user.sewa.index');
     }
 }
