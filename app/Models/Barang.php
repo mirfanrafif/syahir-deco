@@ -12,4 +12,8 @@ class Barang extends Model
     protected $table = "barang";
     protected $primaryKey = "idbarang";
     protected $fillable = ["jenis_paket", "keterangan", "stok", "harga", "kategori", "kategori_acara"];
+
+    public function sewa() {
+        return $this->hasMany('App\Models\Sewa', 'barang_idbarang');
+    }
 }
