@@ -96,5 +96,13 @@ class BarangController extends Controller
     public function destroy($id)
     {
         //
+        $barang = Barang::findOrFail($id);
+
+        if (count($barang->sewa) == 0) {
+            $barang->delete();
+            return redirect('/admin/barang')->with('message', 'Berhasil Menghapus Data');;
+        } else {
+            return redirect('/user')->with('message', 'Gagal Menghapus Data. Pindahkan siswa ke user lain terlebih dahulu.');
+        }
     }
 }
