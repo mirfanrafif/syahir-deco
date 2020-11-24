@@ -38,7 +38,6 @@
     
 @endsection
 
-
 @section('pagetitle')
     
 <div class="app-page-title">
@@ -54,6 +53,14 @@
           base, but built with React.
         </div>
       </div>
+    </div>
+    <div class="page-title-actions">
+      <a href="/admin/persewaan/create" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">
+        <span class="btn-icon-wrapper pr-2 opacity-7">
+          <i class="fa fa-business-time fa-w-20"></i>
+        </span>
+        ADD SEWA
+      </a>
     </div>
   </div>
 </div>
