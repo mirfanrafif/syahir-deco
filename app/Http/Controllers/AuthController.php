@@ -52,7 +52,7 @@ class AuthController extends Controller
             'password' => ['required']
         ]);
 
-        $credentials = $request->only('email', 'password', 'level');
+        $credentials = $request->only('email', 'password');
 
         if(Auth::attempt($credentials)) {
             if (Auth::user()->level == 'admin') {

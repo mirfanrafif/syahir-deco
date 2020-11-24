@@ -10,7 +10,7 @@
   <title>Syahir Decoration - @yield('title')</title>
 
   <!-- FAVICON -->
-  <link href="img/favicon.png" rel="shortcut icon">
+  <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
   <!-- PLUGINS CSS STYLE -->
   <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
   <!-- Bootstrap -->
@@ -26,6 +26,8 @@
   <link href="{{ asset('plugins/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
   <!-- CUSTOM CSS -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+  <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
 
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -46,7 +48,7 @@
         <div class="col-md-12">
           <nav class="navbar navbar-expand-lg navbar-light navigation">
             <a class="navbar-brand" href="index.html">
-              <img src="images/logo.png" alt="">
+              <img src="{{ asset('images/logo.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,15 +60,8 @@
                   <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item dropdown dropdown-slide">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Paket<span><i
-                        class="fa fa-angle-down"></i></span>
+                  <a class="nav-link" href="/barang">Barang</a>
                   </a>
-
-                  <!-- Dropdown list -->
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/barang">Paket Dekorasi</a>
-                    <a class="dropdown-item" href="/barang">Dekorasi Tambahan</a>
-                  </div>
                 </li>
               </ul>
               <ul class="navbar-nav ml-auto mt-10">
@@ -205,7 +200,6 @@
   </footer>
 
   <!-- JAVASCRIPTS -->
-  <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
   <script src="{{ asset('plugins/bootstrap/js/popper.min.js') }}"></script>
   <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('plugins/bootstrap/js/bootstrap-slider.js') }}"></script>

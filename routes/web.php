@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\admin\BarangController;
+use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\SewaController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\user\TransaksiController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,17 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, "index"]);
 
-Route::get('/detail', function () {
-    return view('detailbarang');
-});
+Route::get('/barang/{id}/detail', [WelcomeController::class, "detail"]);
 
-Route::get('/barang', function () {
-    return view('listbarang');
-});
+Route::get('/barang', [WelcomeController::class, "barang"]);
 
 //Register dan login
 Route::get('/register', [AuthController::class, 'register']);
