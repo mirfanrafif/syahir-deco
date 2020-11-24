@@ -96,8 +96,8 @@
                 <label for="level" class="col-sm-2 col-form-label">Level</label>
                 <div class="col-sm-10">
                     <select name="level" id="level" class="form-control">
-                        <option value="Admin">Admin</option>
-                        <option value="User" selected>User</option>
+                        <option value="admin">Admin</option>
+                        <option value="user" selected>User</option>
                     </select>
                 </div>
             </div>

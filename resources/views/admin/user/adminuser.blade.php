@@ -74,19 +74,23 @@
                       @php
                         $count =0;
                       @endphp
-                      @foreach ($user as $item)
-                          <tr>
-                            <th scope="row">{{ $count +=1 }}</th>
-                            <td>{{ $item->nama }}</td>
-                            <td>{{ $item->email }}</td>
-                            <td>{{ $item->level }}</td>
-                            <td>
-                              <a href="/admin/user/{{$item->id}}" class="badge badge-info">Detail</a>
-                              <a href="/admin/user/{{$item->id}}/edit/" class="badge badge-warning">Edit</a>
-                              <a href="/admin/user/{{$item->id}}" class="badge badge-danger">Hapus</a>
+                        @foreach ($user as $item)
+                        <tr>
+                          <th scope="row">{{ $count +=1 }}</th>
+                          <td>{{ $item->nama }}</td>
+                          <td>{{ $item->email }}</td>
+                          <td>{{ $item->level }}</td>
+                          <form action="/admin/user/{{ $item->id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                          <td>
+                            <a href="/admin/user/{{$item->id}}" class="badge badge-info">Detail</a>
+                            <a href="/admin/user/{{$item->id}}/edit/" class="badge badge-warning">Edit</a>
+                            <a href="/admin/user/{{$item->id}}" class="badge badge-danger">Hapus</a>
+                          </form>
                           </td>
-                          </tr>
-                      @endforeach
+                        </tr>
+                        @endforeach
                     
                     </tbody>
                 </table>

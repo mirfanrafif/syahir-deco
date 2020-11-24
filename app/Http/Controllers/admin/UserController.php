@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -43,21 +45,19 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        DB::table('user')->insert([
-            'nama' => $request->nama,
-            'email' => $request->email,
-            'password' => $request->password,
-            'level' => $request->level,
-            'notelepon' => $request->phone,
-            'noktp' => $request->ktp,
-            'alamat' => $request->alamat
-        ]);
-        // $shark = new shark;
-        // $shark->name       = Input::get('name');
-        // $shark->email      = Input::get('email');
-        // $shark->shark_level = Input::get('shark_level');
-        // $shark->save();
-        return redirect('/admin/user')->with('status', 'Sukses');
+
+        $user = new User();
+        $user->nama = $request->nama;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->level = $request->level;
+        $user->notelepon = $request->phone;
+        $user->noktp = $request->ktp;
+        $user->alamat = $request->alamat;
+
+        if ($user->save()) {
+            return redirect('/admin/user');
+        }
     }
 
     /**
@@ -69,6 +69,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
+
+
     }
 
     /**
@@ -94,6 +96,18 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::findOrFail($id);
+        $user->nama = $request->nama;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->level = $request->level;
+        $user->notelepon = $request->phone;
+        $user->noktp = $request->ktp;
+        $user->alamat = $request->alamat;
+
+        if ($user->save()) {
+            return redirect('/admin/user');
+        }
     }
 
     /**
@@ -105,5 +119,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::findOrFail($id);
+
+        if (count($user->siswa) == 0) {
+            $user->delete();
+            return redirect('/user')->with('message', 'Berhasil Menghapus Data');;
+        } else {
+            return redirect('/user')->with('message', 'Gagal Menghapus Data. Pindahkan siswa ke user lain terlebih dahulu.');
+        }
     }
 }
