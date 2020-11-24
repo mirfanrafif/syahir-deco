@@ -39,7 +39,7 @@
                 <i class="pe-7s-display1 icon-gradient bg-premium-dark"> </i>
             </div>
             <div>
-                Form Tambah User
+                Form Edit Barang
                 <div class="page-title-subheading">
                     Wide selection of forms controls, using the Bootstrap 4 code
                     base, but built with React.

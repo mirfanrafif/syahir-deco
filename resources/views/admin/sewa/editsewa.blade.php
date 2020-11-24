@@ -17,13 +17,13 @@
         </a>
     </li>
     <li>
-        <a href="/admin/persewaan">
+        <a href="/admin/persewaan" class="mm-active">
             <i class="metismenu-icon pe-7s-display2"></i>
             Persewaan
         </a>
     </li>
     <li>
-        <a href="/admin/user" class="mm-active">
+        <a href="/admin/user">
             <i class="metismenu-icon pe-7s-display2"></i>
             User
         </a>
@@ -38,7 +38,7 @@
                 <i class="pe-7s-display1 icon-gradient bg-premium-dark"> </i>
             </div>
             <div>
-                Form Tambah User
+                Form Edit Persewaan
                 <div class="page-title-subheading">
                     Wide selection of forms controls, using the Bootstrap 4 code
                     base, but built with React.

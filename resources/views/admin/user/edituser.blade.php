@@ -102,8 +102,16 @@
                 <label for="level" class="col-sm-2 col-form-label" value="{{ $item->level }}">Level</label>
                 <div class="col-sm-10">
                     <select name="level" id="level" class="form-control">
-                        <option value="User" >User</option>
-                        <option value="Admin">Admin</option>
+                        <option value="user"  
+                        @if ("user"==$item->level)
+                            selected
+                        @endif
+                        >User</option>
+                        <option value="admin" 
+                        @if ("admin"==$item->level)
+                                selected
+                            @endif
+                            >Admin</option>
                     </select>
                 </div>
             </div>
