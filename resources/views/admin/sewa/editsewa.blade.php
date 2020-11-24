@@ -51,103 +51,60 @@
 @endsection @section('content')
 <div class="main-card mb-3 card">
     <div class="card-body">
-        @foreach ($user as $item)
         <h5 class="card-title">Grid</h5>
-        <form action="/admin/user/{{ $item->id }}" method="post">
+        <form action="/admin/user/{{ $sewa->idpersewaan }}" method="post">
             @method('PUT')
             {{ csrf_field() }}
-            <input type="hidden" name="{{ $item->id }}">
             <div class="position-relative row form-group">
-                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <label for="tanggal_sewa" class="col-sm-2 col-form-label">Tanggal Sewa</label>
                 <div class="col-sm-10">
-                    <input
-                        name="nama"
-                        id="nama"
-                        placeholder="enter name"
-                        type="text"
-                        class="form-control"
-                        value="{{ $item->nama }}"
-                    />
+                    <input name="tanggal_sewa" id="tanggal_sewa" placeholder="enter tanggal sewa" type="date"
+                        class="form-control" value="{{ $sewa->tanggal_sewa }}" />
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <label for="tanggal_transaksi" class="col-sm-2 col-form-label">Tanggal Transaksi</label>
                 <div class="col-sm-10">
-                    <input
-                        name="email"
-                        id="email"
-                        placeholder="enter email"
-                        type="email"
-                        class="form-control"
-                        value="{{ $item->email }}"
-                    />
+                    <input name="tanggal_transaksi" id="tanggal_transaksi" placeholder="enter tanggal transaksi"
+                        type="date" class="form-control" value="{{ $sewa->tanggal_transaksi }}" />
+                </div>
+            </div>
+
+            <div class="position-relative row form-group">
+                <label for="status" class="col-sm-2 col-form-label">Status</label>
+                <div class="col-sm-10">
+                    <input name="status" id="status" placeholder="enter status" type="number" class="form-control" value="{{ $sewa->status }}" />
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="password" class="col-sm-2 col-form-label"
-                    >Password</label
-                >
+                <label for="barang" class="col-sm-2 col-form-label">Barang</label>
                 <div class="col-sm-10">
-                    <input
-                        name="password"
-                        id="password"
-                        placeholder="enter password"
-                        type="password"
-                        class="form-control"
-                        value="{{ $item->password }}"
-                    />
-                </div>
-            </div>
-            <div class="position-relative row form-group">
-                <label for="level" class="col-sm-2 col-form-label" value="{{ $item->level }}">Level</label>
-                <div class="col-sm-10">
-                    <select name="level" id="level" class="form-control">
-                        <option value="User" >User</option>
-                        <option value="Admin">Admin</option>
+                    <select name="barang" id="barang" class="form-control">
+                        <option value="-">---</option>
+                        @foreach ($barang as $item)
+                        <option value="{{ $item->idbarang }}"
+                            @if ($sewa->barang_idbarang==$item->idbarang)
+                                selected
+                            @endif
+                            >{{ $item->jenis_paket }}</option>
+
+                        @endforeach
                     </select>
                 </div>
             </div>
-
             <div class="position-relative row form-group">
-                <label for="alamat" class="col-sm-2 col-form-label"
-                    >Alamat</label
-                >
+                <label for="user" class="col-sm-2 col-form-label">User</label>
                 <div class="col-sm-10">
-                    <input
-                        name="alamat"
-                        id="alamat"
-                        placeholder="Enter address"
-                        type="text"
-                        class="form-control"
-                        value="{{ $item->alamat }}"
-                    />
-                </div>
-            </div>
-
-            <div class="position-relative row form-group">
-                <label for="phone" class="col-sm-2 col-form-label">Phone</label>
-                <div class="col-sm-10">
-                    <input
-                        name="phone"
-                        id="phone"
-                        placeholder="Enter phone number"
-                        type="text"
-                        class="form-control"
-                        value="{{ $item->notelepon }}"
-                    />
-                </div>
-            </div>
-            <div class="position-relative row form-group">
-                <label for="ktp" class="col-sm-2 col-form-label">No KTP</label>
-                <div class="col-sm-10">
-                    <input
-                        name="ktp"
-                        id="ktp"
-                        placeholder="masukkan no ktp"
-                        type="text"
-                        class="form-control"
-                        value="{{ $item->noktp }}"
-                    />
+                    <select name="user" id="user" class="form-control">
+                        <option value="-">---</option>
+                        @foreach ($user as $item)
+                        <option value="{{ $item->id }}"
+                            @if ($sewa->user_id==$item->id)
+                                selected
+                            @endif
+                            >{{ $item->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
@@ -212,7 +169,6 @@
                 </div>
             </div>
         </form>
-        @endforeach
     </div>
 </div>
 
