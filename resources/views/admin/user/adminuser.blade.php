@@ -80,13 +80,13 @@
                           <td>{{ $item->nama }}</td>
                           <td>{{ $item->email }}</td>
                           <td>{{ $item->level }}</td>
-                          <form action="/admin/user/{{ $item->id }}" method="post">
-                            @csrf
-                            @method('DELETE')
                           <td>
-                            <a href="/admin/user/{{$item->id}}" class="badge badge-info">Detail</a>
-                            <a href="/admin/user/{{$item->id}}/edit/" class="badge badge-warning">Edit</a>
-                            <a href="/admin/user/{{$item->id}}" class="badge badge-danger">Hapus</a>
+                            {{-- <a href="/admin/user/{{$item->id}}" class="badge badge-info">Detail</a> --}}
+                            <form action="/admin/user/{{ $item->id }}" method="post">
+                              @csrf
+                              @method('DELETE')
+                            <a href="/admin/user/{{$item->id}}/edit/" class="mb-2 mr-2 btn btn-warning">Edit</a>
+                            <button class="mb-2 mr-2 btn btn-danger" type="submit" >Hapus</button>
                           </form>
                           </td>
                         </tr>

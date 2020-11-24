@@ -72,6 +72,7 @@
                           <th>Stok</th>
                           <th>Harga</th>
                           <th>Kategori</th>
+                          <th>Kategori Acara</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -86,7 +87,16 @@
                               <td>{{ $item->stok }}</td>
                               <td>{{ $item->harga }}</td>
                               <td>{{ $item->kategori }}</td>
-                            </tr>
+                              <td>{{ $item->kategori_acara }}</td>
+                            <form action="/admin/barang/{{ $item->idbarang }}" method="post">
+                              @csrf
+                              @method('DELETE')
+                            <td>
+                              {{-- <a href="/admin/barang/{{$item->idbarang}}" class="badge badge-info">Detail</a> --}}
+                              <a href="/admin/barang/{{$item->idbarang}}/edit/" class="badge badge-warning">Edit</a>
+                              <a href="/admin/barang/{{$item->idbarang}}" class="badge badge-danger">Hapus</a>
+                            </td>
+                          </form>
                         @endforeach
                       
                       </tbody>

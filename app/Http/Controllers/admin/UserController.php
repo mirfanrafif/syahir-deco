@@ -121,9 +121,9 @@ class UserController extends Controller
         //
         $user = User::findOrFail($id);
 
-        if (count($user->siswa) == 0) {
+        if (count($user->sewa) == 0) {
             $user->delete();
-            return redirect('/user')->with('message', 'Berhasil Menghapus Data');;
+            return redirect('/admin/user')->with('message', 'Berhasil Menghapus Data');;
         } else {
             return redirect('/user')->with('message', 'Gagal Menghapus Data. Pindahkan siswa ke user lain terlebih dahulu.');
         }

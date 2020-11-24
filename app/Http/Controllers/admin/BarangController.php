@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +18,7 @@ class BarangController extends Controller
     {
         $barang = DB::table('barang')->get();
 
-        return view('admin/baranguser', ['barang' => $barang]);
+        return view('admin/barang/baranguser', ['barang' => $barang]);
     }
 
     /**
@@ -27,7 +28,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view("admin/adminuser");
+        return view("admin/barang/tambahbarang");
     }
 
     /**
@@ -39,6 +40,17 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         //
+        $barang = new Barang();
+        $barang->jenis_paket = $request->jenis_paket;
+        $barang->keterangan = $request->keterangan;
+        $barang->stok = $request->stok;
+        $barang->harga = $request->harga;
+        $barang->kategori = $request->kategori;
+        $barang->kategori_acara = $request->kategori_acara;
+
+        if ($barang->save()) {
+            return redirect('/admin/barang');
+        }
     }
 
     /**
@@ -49,7 +61,7 @@ class BarangController extends Controller
      */
     public function show($id)
     {
-        return view("admin/adminuser");
+        return view("admin/adminbarang");
     }
 
     /**
@@ -60,7 +72,7 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        return view("admin/adminuser");
+        return view("admin/barang/editbarang");
     }
 
     /**
