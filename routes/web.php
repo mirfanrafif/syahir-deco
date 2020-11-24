@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\admin\BarangController;
+use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\SewaController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\user\TransaksiController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,34 +19,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/detail', function () {
-    return view('detailbarang');
-});
-
-Route::get('/barang', function () {
-    return view('listbarang');
-});
+//home dan barang
+Route::get('/', [WelcomeController::class, "index"]);
+Route::get('/barang/{id}/detail', [WelcomeController::class, "detail"]);
+Route::get('/barang', [WelcomeController::class, "barang"]);
 
 //Register dan login
 Route::get('/register', [AuthController::class, 'register']);
-
 Route::post('/register', [AuthController::class, 'prosesRegister']);
-
 Route::get('/login', [AuthController::class, 'login']);
-
 Route::post('/login', [AuthController::class, 'prosesLogin']);
-
 Route::get('/logout', [AuthController::class, 'logout']);
-
+//sewa
+Route::get('/sewa', [WelcomeController::class, 'sewa'])->middleware('UserAuth');
+Route::post('/sewa', [WelcomeController::class, 'prosesSewa'])->middleware('UserAuth');
 
 //user sewa
 Route::get('/user/sewa', [TransaksiController::class, 'index'])->middleware('UserAuth');
-
+Route::get('/user/sewa/{id}/bayar', [TransaksiController::class, 'bayar'])->middleware('UserAuth');
 
 //admin dashboard
 Route::get("/admin", [\App\Http\Controllers\admin\HomeController::class, "index"])->middleware('AdminAuth');
@@ -57,7 +49,3 @@ Route::resource('/admin/persewaan', SewaController::class)->middleware('AdminAut
 
 //admin user
 Route::resource('/admin/user', UserController::class)->middleware('AdminAuth');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

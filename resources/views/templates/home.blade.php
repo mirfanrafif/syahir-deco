@@ -10,14 +10,14 @@
   <title>Syahir Decoration - @yield('title')</title>
 
   <!-- FAVICON -->
-  <link href="img/favicon.png" rel="shortcut icon">
+  <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
   <!-- PLUGINS CSS STYLE -->
   <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
   <!-- Bootstrap -->
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap-slider.css') }}">
   <!-- Font Awesome -->
-  <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Owl Carousel -->
   <link href="{{ asset('plugins/slick-carousel/slick/slick.css') }}" rel="stylesheet">
   <link href="{{ asset('plugins/slick-carousel/slick/slick-theme.css') }}" rel="stylesheet">
@@ -26,6 +26,8 @@
   <link href="{{ asset('plugins/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
   <!-- CUSTOM CSS -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+  <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
 
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -46,7 +48,7 @@
         <div class="col-md-12">
           <nav class="navbar navbar-expand-lg navbar-light navigation">
             <a class="navbar-brand" href="index.html">
-              <img src="images/logo.png" alt="">
+              <img src="{{ asset('images/logo.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,15 +60,8 @@
                   <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item dropdown dropdown-slide">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Paket<span><i
-                        class="fa fa-angle-down"></i></span>
+                  <a class="nav-link" href="/barang">Barang</a>
                   </a>
-
-                  <!-- Dropdown list -->
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/barang">Paket Dekorasi</a>
-                    <a class="dropdown-item" href="/barang">Dekorasi Tambahan</a>
-                  </div>
                 </li>
               </ul>
               <ul class="navbar-nav ml-auto mt-10">
@@ -113,7 +108,7 @@
           <!-- About -->
           <div class="block about">
             <!-- footer logo -->
-            <img src="images/logo-footer.png" alt="">
+            <img src="{{ asset('images/logo-footer.png') }}" alt="">
             <!-- description -->
             <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -157,13 +152,14 @@
             <div class="mobile d-flex">
               <a href="">
                 <!-- Icon -->
-                <img src="images/footer/phone-icon.png" alt="mobile-icon">
+                <img src="{{ asset('images/footer/phone-icon.png') }}" alt="mobile-icon">
               </a>
               <p>Get the Dealsy Mobile App and Save more</p>
             </div>
             <div class="download-btn d-flex my-3">
-              <a href="#"><img src="images/apps/google-play-store.png" class="img-fluid" alt=""></a>
-              <a href="#" class=" ml-3"><img src="images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
+              <a href="#"><img src="{{ asset('images/apps/google-play-store.png') }}" class="img-fluid" alt=""></a>
+              <a href="#" class=" ml-3"><img src="{{ asset('images/apps/apple-app-store.png') }}" class="img-fluid"
+                  alt=""></a>
             </div>
           </div>
         </div>
@@ -205,7 +201,6 @@
   </footer>
 
   <!-- JAVASCRIPTS -->
-  <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
   <script src="{{ asset('plugins/bootstrap/js/popper.min.js') }}"></script>
   <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('plugins/bootstrap/js/bootstrap-slider.js') }}"></script>
@@ -213,7 +208,6 @@
   <script src="{{ asset('plugins/tether/js/tether.min.js') }}"></script>
   <script src="{{ asset('plugins/raty/jquery.raty-fa.js') }}"></script>
   <script src="{{ asset('plugins/slick-carousel/slick/slick.min.js') }}"></script>
-  <script src="{{ asset('plugins/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
   <script src="{{ asset('plugins/fancybox/jquery.fancybox.pack.js') }}"></script>
   <!-- google map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places">

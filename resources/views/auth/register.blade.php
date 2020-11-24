@@ -15,7 +15,7 @@
                         <label for="nama" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
 
                         <div class="col-md-6">
-                            <input id="nama" type="text" class="form-control @error('name') is-invalid @enderror"
+                            <input id="nama" type="text" class="border p-3 w-100 @error('name') is-invalid @enderror"
                                 name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus>
 
                             @error('name')
@@ -31,8 +31,9 @@
                         <label for="alamat" class="col-md-4 col-form-label text-md-right">{{ __('Alamat') }}</label>
 
                         <div class="col-md-6">
-                            <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat" autofocus>
+                            <input id="alamat" type="text"
+                                class="border p-3 w-100 @error('alamat') is-invalid @enderror" name="alamat"
+                                value="{{ old('alamat') }}" required autocomplete="alamat" autofocus>
 
                             @error('alamat')
                             <span class="invalid-feedback" role="alert">
@@ -49,7 +50,7 @@
 
                         <div class="col-md-6">
                             <input id="notelepon" type="text"
-                                class="form-control @error('notelepon') is-invalid @enderror" name="notelepon"
+                                class="border p-3 w-100 @error('notelepon') is-invalid @enderror" name="notelepon"
                                 value="{{ old('notelepon') }}" required autocomplete="notelepon" autofocus>
 
                             @error('notelepon')
@@ -65,7 +66,7 @@
                         <label for="noktp" class="col-md-4 col-form-label text-md-right">{{ __('No. KTP') }}</label>
 
                         <div class="col-md-6">
-                            <input id="noktp" type="text" class="form-control @error('noktp') is-invalid @enderror"
+                            <input id="noktp" type="text" class="border p-3 w-100 @error('noktp') is-invalid @enderror"
                                 name="noktp" value="{{ old('noktp') }}" required autocomplete="noktp" autofocus>
 
                             @error('noktp')
@@ -81,7 +82,7 @@
                             class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                            <input id="email" type="email" class="border p-3 w-100 @error('email') is-invalid @enderror"
                                 name="email" value="{{ old('email') }}" required autocomplete="email">
 
                             @error('email')
@@ -97,8 +98,8 @@
 
                         <div class="col-md-6">
                             <input id="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="new-password">
+                                class="border p-3 w-100 @error('password') is-invalid @enderror" name="password"
+                                required autocomplete="new-password">
 
                             @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -113,7 +114,7 @@
                             class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                         <div class="col-md-6">
-                            <input id="password-confirm" type="password" class="form-control"
+                            <input id="password-confirm" type="password" class="border p-3 w-100"
                                 name="password_confirmation" required autocomplete="new-password">
                         </div>
                     </div>

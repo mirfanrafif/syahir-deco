@@ -24,4 +24,8 @@ class User extends Authenticatable
     ];
 
     public $timestamps = false;
+
+    public function sewa() {
+        return $this->hasMany('App\Models\Sewa', 'user_id');
+    }
 }
