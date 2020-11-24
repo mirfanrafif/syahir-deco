@@ -68,10 +68,10 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Barang</th>
-                      <th>Customer</th>
                       <th>Tanggal Sewa</th>
                       <th>Tanggal Transaksi</th>
+                      <th>Barang</th>
+                      <th>User</th>
                       <th>Status</th>
                     </tr>
                   </thead>
@@ -82,10 +82,10 @@
                     @foreach ($sewa as $item)
                         <tr>
                           <th scope="row">{{ $count +=1 }}</th>
-                          <td>{{ $item->barang_idbarang }}</td>
-                          <td>{{ $item->customer_idcustomer }}</td>
                           <td>{{ $item->tanggal_sewa }}</td>
                           <td>{{ $item->tanggal_transaksi }}</td>
+                          <td>{{ $item->barang->jenis_paket }}</td>
+                          <td>{{ $item->user->nama }}</td>
                           <td>{{ $item->status }}</td>
                         </tr>
                     @endforeach
