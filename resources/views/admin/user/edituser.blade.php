@@ -53,7 +53,8 @@
     <div class="card-body">
         @foreach ($user as $item)
         <h5 class="card-title">Grid</h5>
-        <form action="/admin/user" method="post">
+        <form action="/admin/user/{{ $item->id }}" method="post">
+            @method('PUT')
             {{ csrf_field() }}
             <input type="hidden" name="{{ $item->id }}">
             <div class="position-relative row form-group">
@@ -101,8 +102,8 @@
                 <label for="level" class="col-sm-2 col-form-label" value="{{ $item->level }}">Level</label>
                 <div class="col-sm-10">
                     <select name="level" id="level" class="form-control">
-                        <option value="User" >User</option>
-                        <option value="Admin">Admin</option>
+                        <option value="user" >User</option>
+                        <option value="admin">Admin</option>
                     </select>
                 </div>
             </div>
