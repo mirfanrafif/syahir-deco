@@ -51,7 +51,7 @@
 @endsection @section('content')
 <div class="main-card mb-3 card">
     <div class="card-body">
-        <h5 class="card-title">Grid</h5>
+        <h5 class="card-title">Data Barang</h5>
         <form action="/admin/barang" method="post">
             {{ csrf_field() }}
             <div class="position-relative row form-group">
