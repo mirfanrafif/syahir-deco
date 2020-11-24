@@ -11,7 +11,7 @@
     <li class="app-sidebar__heading">Admin</li>
 
     <li>
-        <a href="/admin/barang">
+        <a href="/admin/barang" class="mm-active">
             <i class="metismenu-icon pe-7s-display2"></i>
             Barang
         </a>
@@ -23,7 +23,7 @@
         </a>
     </li>
     <li>
-        <a href="/admin/user" class="mm-active">
+        <a href="/admin/user">
             <i class="metismenu-icon pe-7s-display2"></i>
             User
         </a>
@@ -63,14 +63,14 @@
             <div class="position-relative row form-group">
                 <label for="jenis_paket" class="col-sm-2 col-form-label">Jenis Paket</label>
                 <div class="col-sm-10">
-                    <input name="jenis_paket" id="jenispaket" placeholder="enter name paket" type="text"
-                        class="form-control" value="{{ $item->nama }}" />
+                    <input name="jenis_paket" id="jenis_paket" placeholder="enter name paket" type="text"
+                        class="form-control" value="{{ $item->jenis_paket }}" />
                 </div>
             </div>
             <div class="position-relative row form-group">
                 <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
                 <div class="col-sm-10">
-                    <input name="jenis_paket" id="keterangan" placeholder="enter keterangan" type="text"
+                    <input name="keterangan" id="keterangan" placeholder="enter keterangan" type="text"
                         class="form-control" value="{{ $item->keterangan }}" />
                 </div>
             </div>
@@ -78,29 +78,30 @@
                 <label for="stok" class="col-sm-2 col-form-label">Stok</label>
                 <div class="col-sm-10">
                     <input name="stok" id="stok" placeholder="enter stok" type="number" class="form-control"
-                        value="{{ $item->keterangan }}" />
+                        value="{{ $item->stok }}" />
                 </div>
             </div>
             <div class="position-relative row form-group">
                 <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                 <div class="col-sm-10">
                     <input name="harga" id="harga" placeholder="enter harga" type="number" class="form-control"
-                        value="{{ $item->keterangan }}" />
+                        value="{{ $item->harga }}" />
                 </div>
             </div>
 
             <div class="position-relative row form-group">
                 <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                 <div class="col-sm-10">
-                    <input name="kategori" id="kategori" placeholder="enter kategori" type="number" class="form-control"
-                        value="{{ $item->keterangan }}" />
+                    <input name="kategori" id="kategori" placeholder="enter kategori" type="text" class="form-control"
+                        value="{{ $item->kategori }}" />
                 </div>
             </div>
+
             <div class="position-relative row form-group">
-                <label for="kategori_acara" class="col-sm-2 col-form-label">Kategori Acara<< /label>
+                <label for="kategori_acara" class="col-sm-2 col-form-label">Kategori Acara </label>
                         <div class="col-sm-10">
                             <input name="kategori_acara" id="kategori_acara" placeholder="enter kategori acara"
-                                type="number" class="form-control" value="{{ $item->keterangan }}" />
+                                type="text" class="form-control" value="{{ $item->kategori_acara }}" />
                         </div>
             </div>
 
