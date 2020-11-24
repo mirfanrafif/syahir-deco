@@ -28,6 +28,8 @@ class SewaController extends Controller
     public function create()
     {
         //
+        $sewa = Sewa::all();
+        return view("admin/sewa/tambahsewa", ['sewa' => $sewa]);
     }
 
     /**

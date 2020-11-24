@@ -87,6 +87,15 @@
                           <td>{{ $item->barang->jenis_paket }}</td>
                           <td>{{ $item->user->nama }}</td>
                           <td>{{ $item->status }}</td>
+                          <form action="/admin/persewaan/{{ $item->idpersewaan }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                          <td>
+                            {{-- <a href="/admin/barang/{{$item->idbarang}}" class="badge badge-info">Detail</a> --}}
+                            <a href="/admin/persewaan/{{$item->idpersewaan}}/edit/" class="mb-2 mr-2 btn btn-warning">Edit</a>
+                            <button class="mb-2 mr-2 btn btn-danger" type="submit" >Hapus</button>
+                          </td>
+                        </form>
                         </tr>
                     @endforeach
                   
