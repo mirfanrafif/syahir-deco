@@ -30,7 +30,8 @@
     </li>
 </ul>
 
-@endsection @section('pagetitle')
+@endsection 
+@section('pagetitle')
 <div class="app-page-title">
     <div class="page-title-wrapper">
         <div class="page-title-heading">
@@ -52,65 +53,50 @@
 <div class="main-card mb-3 card">
     <div class="card-body">
         <h5 class="card-title">Grid</h5>
-        <form action="/admin/user/" method="post">
+        <form action="/admin/persewaan/" method="post">
             @method('POST')
             {{ csrf_field() }}
             <div class="position-relative row form-group">
                 <label for="tanggal_sewa" class="col-sm-2 col-form-label">Tanggal Sewa</label>
                 <div class="col-sm-10">
-                    <input
-                        name="tanggal_sewa"
-                        id="tanggal_sewa"
-                        placeholder="enter tanggal sewa"
-                        type="date"
-                        class="form-control"
-                    />
+                    <input name="tanggal_sewa" id="tanggal_sewa" placeholder="enter tanggal sewa" type="date"
+                        class="form-control" />
                 </div>
             </div>
             <div class="position-relative row form-group">
                 <label for="tanggal_transaksi" class="col-sm-2 col-form-label">Tanggal Transaksi</label>
                 <div class="col-sm-10">
-                    <input
-                        name="tanggal_transaksi"
-                        id="tanggal_transaksi"
-                        placeholder="enter tanggal transaksi"
-                        type="date"
-                        class="form-control"
-                    />
+                    <input name="tanggal_transaksi" id="tanggal_transaksi" placeholder="enter tanggal transaksi"
+                        type="date" class="form-control" />
                 </div>
             </div>
 
             <div class="position-relative row form-group">
                 <label for="status" class="col-sm-2 col-form-label">Status</label>
                 <div class="col-sm-10">
-                    <input
-                        name="status"
-                        id="status"
-                        placeholder="enter status"
-                        type="number"
-                        class="form-control"
-                    />
+                    <input name="status" id="status" placeholder="enter status" type="number" class="form-control" />
                 </div>
             </div>
             <div class="position-relative row form-group">
                 <label for="barang" class="col-sm-2 col-form-label">Barang</label>
                 <div class="col-sm-10">
                     <select name="barang" id="barang" class="form-control">
-                        @foreach ($sewa->barang as $item)
-                        <option value="{{ $item->idbarang }}" >{{ $item->jenis_paket }}</option>
-                            
+                        <option value="-">---</option>
+                        @foreach ($sewa as $item)
+                        <option value="{{ $item->barang->idbarang }}">{{ $item->barang->jenis_paket }}</option>
+
                         @endforeach
-                        <option value="User" >User</option>
-                        <option value="Admin">Admin</option>
                     </select>
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="user" class="col-sm-2 col-form-label" >User</label>
+                <label for="user" class="col-sm-2 col-form-label">User</label>
                 <div class="col-sm-10">
                     <select name="user" id="user" class="form-control">
-                        <option value="User" >User</option>
-                        <option value="Admin">Admin</option>
+                        <option value="-">---</option>
+                        @foreach ($sewa as $item)
+                        <option value="{{ $item->user->id }}">{{ $item->user->nama }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -120,54 +106,29 @@
                 <legend class="col-form-label col-sm-2">Radio Buttons</legend>
                 <div class="col-sm-10">
                     <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                type="radio"
-                                class="form-check-input"
-                            />
+                        <label class="form-check-label"><input name="radio2" type="radio" class="form-check-input" />
                             Option one is this and that—be sure to include why
-                            it's great</label
-                        >
+                            it's great</label>
                     </div>
                     <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                type="radio"
-                                class="form-check-input"
-                            />
+                        <label class="form-check-label"><input name="radio2" type="radio" class="form-check-input" />
                             Option two can be something else and selecting it
-                            will deselect option one</label
-                        >
+                            will deselect option one</label>
                     </div>
                     <div class="position-relative form-check disabled">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                disabled=""
-                                type="radio"
-                                class="form-check-input"
-                            />
-                            Option three is disabled</label
-                        >
+                        <label class="form-check-label"><input name="radio2" disabled="" type="radio"
+                                class="form-check-input" />
+                            Option three is disabled</label>
                     </div>
                 </div>
             </fieldset>
             <div class="position-relative row form-group">
-                <label for="checkbox2" class="col-sm-2 col-form-label"
-                    >Checkbox</label
-                >
+                <label for="checkbox2" class="col-sm-2 col-form-label">Checkbox</label>
                 <div class="col-sm-10">
                     <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                id="checkbox2"
-                                type="checkbox"
-                                class="form-check-input"
-                            />
-                            Check me out</label
-                        >
+                        <label class="form-check-label"><input id="checkbox2" type="checkbox"
+                                class="form-check-input" />
+                            Check me out</label>
                     </div>
                 </div>
             </div>

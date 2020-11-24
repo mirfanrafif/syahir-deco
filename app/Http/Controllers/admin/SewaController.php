@@ -41,6 +41,16 @@ class SewaController extends Controller
     public function store(Request $request)
     {
         //
+        $sewa = new Sewa();
+        $sewa->tanggal_sewa = $request->tanggal_sewa;
+        $sewa->tanggal_transaksi = $request->tanggal_transaksi;
+        $sewa->status = $request->status;
+        $sewa->barang_idbarang = $request->barang;
+        $sewa->user_id = $request->user;
+
+        if ($sewa->save()) {
+            return redirect('/admin/persewaan');
+        }
     }
 
     /**
