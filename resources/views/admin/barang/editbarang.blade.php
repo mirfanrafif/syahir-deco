@@ -30,7 +30,8 @@
     </li>
 </ul>
 
-@endsection @section('pagetitle')
+@endsection
+@section('pagetitle')
 <div class="app-page-title">
     <div class="page-title-wrapper">
         <div class="page-title-heading">
@@ -48,161 +49,88 @@
     </div>
 </div>
 
-@endsection @section('content')
+@endsection
+@section('content')
 <div class="main-card mb-3 card">
     <div class="card-body">
-        @foreach ($user as $item)
-        <h5 class="card-title">Grid</h5>
-        <form action="/admin/user/{{ $item->id }}" method="post">
+        @foreach($barang as $item)
+        <h5 class="card-title">Data Barang</h5>
+        <form action="/admin/barang/{{ $item->idbarang }}" method="post">
             @method('PUT')
             {{ csrf_field() }}
-            <input type="hidden" name="{{ $item->id }}">
+            <input type="hidden" name="{{ $item->idbarang }}" />
+
             <div class="position-relative row form-group">
-                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <label for="jenis_paket" class="col-sm-2 col-form-label">Jenis Paket</label>
                 <div class="col-sm-10">
-                    <input
-                        name="nama"
-                        id="nama"
-                        placeholder="enter name"
-                        type="text"
-                        class="form-control"
-                        value="{{ $item->nama }}"
-                    />
+                    <input name="jenis_paket" id="jenispaket" placeholder="enter name paket" type="text"
+                        class="form-control" value="{{ $item->nama }}" />
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
                 <div class="col-sm-10">
-                    <input
-                        name="email"
-                        id="email"
-                        placeholder="enter email"
-                        type="email"
-                        class="form-control"
-                        value="{{ $item->email }}"
-                    />
+                    <input name="jenis_paket" id="keterangan" placeholder="enter keterangan" type="text"
+                        class="form-control" value="{{ $item->keterangan }}" />
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="password" class="col-sm-2 col-form-label"
-                    >Password</label
-                >
+                <label for="stok" class="col-sm-2 col-form-label">Stok</label>
                 <div class="col-sm-10">
-                    <input
-                        name="password"
-                        id="password"
-                        placeholder="enter password"
-                        type="password"
-                        class="form-control"
-                        value="{{ $item->password }}"
-                    />
+                    <input name="stok" id="stok" placeholder="enter stok" type="number" class="form-control"
+                        value="{{ $item->keterangan }}" />
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="level" class="col-sm-2 col-form-label" value="{{ $item->level }}">Level</label>
+                <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                 <div class="col-sm-10">
-                    <select name="level" id="level" class="form-control">
-                        <option value="user" >User</option>
-                        <option value="admin">Admin</option>
-                    </select>
+                    <input name="harga" id="harga" placeholder="enter harga" type="number" class="form-control"
+                        value="{{ $item->keterangan }}" />
                 </div>
             </div>
 
             <div class="position-relative row form-group">
-                <label for="alamat" class="col-sm-2 col-form-label"
-                    >Alamat</label
-                >
+                <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                 <div class="col-sm-10">
-                    <input
-                        name="alamat"
-                        id="alamat"
-                        placeholder="Enter address"
-                        type="text"
-                        class="form-control"
-                        value="{{ $item->alamat }}"
-                    />
-                </div>
-            </div>
-
-            <div class="position-relative row form-group">
-                <label for="phone" class="col-sm-2 col-form-label">Phone</label>
-                <div class="col-sm-10">
-                    <input
-                        name="phone"
-                        id="phone"
-                        placeholder="Enter phone number"
-                        type="text"
-                        class="form-control"
-                        value="{{ $item->notelepon }}"
-                    />
+                    <input name="kategori" id="kategori" placeholder="enter kategori" type="number" class="form-control"
+                        value="{{ $item->keterangan }}" />
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="ktp" class="col-sm-2 col-form-label">No KTP</label>
-                <div class="col-sm-10">
-                    <input
-                        name="ktp"
-                        id="ktp"
-                        placeholder="masukkan no ktp"
-                        type="text"
-                        class="form-control"
-                        value="{{ $item->noktp }}"
-                    />
-                </div>
+                <label for="kategori_acara" class="col-sm-2 col-form-label">Kategori Acara<< /label>
+                        <div class="col-sm-10">
+                            <input name="kategori_acara" id="kategori_acara" placeholder="enter kategori acara"
+                                type="number" class="form-control" value="{{ $item->keterangan }}" />
+                        </div>
             </div>
 
             <fieldset class="position-relative row form-group">
                 <legend class="col-form-label col-sm-2">Radio Buttons</legend>
                 <div class="col-sm-10">
                     <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                type="radio"
-                                class="form-check-input"
-                            />
+                        <label class="form-check-label"><input name="radio2" type="radio" class="form-check-input" />
                             Option one is this and that—be sure to include why
-                            it's great</label
-                        >
+                            it's great</label>
                     </div>
                     <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                type="radio"
-                                class="form-check-input"
-                            />
+                        <label class="form-check-label"><input name="radio2" type="radio" class="form-check-input" />
                             Option two can be something else and selecting it
-                            will deselect option one</label
-                        >
+                            will deselect option one</label>
                     </div>
                     <div class="position-relative form-check disabled">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                disabled=""
-                                type="radio"
-                                class="form-check-input"
-                            />
-                            Option three is disabled</label
-                        >
+                        <label class="form-check-label"><input name="radio2" disabled="" type="radio"
+                                class="form-check-input" />
+                            Option three is disabled</label>
                     </div>
                 </div>
             </fieldset>
             <div class="position-relative row form-group">
-                <label for="checkbox2" class="col-sm-2 col-form-label"
-                    >Checkbox</label
-                >
+                <label for="checkbox2" class="col-sm-2 col-form-label">Checkbox</label>
                 <div class="col-sm-10">
                     <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                id="checkbox2"
-                                type="checkbox"
-                                class="form-check-input"
-                            />
-                            Check me out</label
-                        >
+                        <label class="form-check-label"><input id="checkbox2" type="checkbox"
+                                class="form-check-input" />
+                            Check me out</label>
                     </div>
                 </div>
             </div>

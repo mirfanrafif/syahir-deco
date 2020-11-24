@@ -72,7 +72,8 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        return view("admin/barang/editbarang");
+        $barang = DB::table('barang')->where('idbarang', $id)->get();
+        return view("admin/barang/editbarang", ['barang' => $barang]);
     }
 
     /**
