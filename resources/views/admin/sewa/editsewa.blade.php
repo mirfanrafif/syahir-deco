@@ -52,7 +52,7 @@
 <div class="main-card mb-3 card">
     <div class="card-body">
         <h5 class="card-title">Grid</h5>
-        <form action="/admin/user/{{ $sewa->idpersewaan }}" method="post">
+        <form action="/admin/persewaan/{{ $sewa->idpersewaan }}" method="post">
             @method('PUT')
             {{ csrf_field() }}
             <div class="position-relative row form-group">
