@@ -82,8 +82,8 @@
                 <div class="col-sm-10">
                     <select name="barang" id="barang" class="form-control">
                         <option value="-">---</option>
-                        @foreach ($sewa as $item)
-                        <option value="{{ $item->barang->idbarang }}">{{ $item->barang->jenis_paket }}</option>
+                        @foreach ($barang as $item)
+                        <option value="{{ $item->idbarang }}">{{ $item->jenis_paket }}</option>
 
                         @endforeach
                     </select>
@@ -94,8 +94,8 @@
                 <div class="col-sm-10">
                     <select name="user" id="user" class="form-control">
                         <option value="-">---</option>
-                        @foreach ($sewa as $item)
-                        <option value="{{ $item->user->id }}">{{ $item->user->nama }}</option>
+                        @foreach ($user as $item)
+                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
                         @endforeach
                     </select>
                 </div>

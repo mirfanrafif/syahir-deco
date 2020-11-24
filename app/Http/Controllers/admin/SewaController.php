@@ -30,8 +30,11 @@ class SewaController extends Controller
     public function create()
     {
         //
+        
+        $barang = Barang::all();
+        $user = User::all();
         $sewa = Sewa::all();
-        return view("admin/sewa/tambahsewa", ['sewa' => $sewa]);
+        return view("admin/sewa/tambahsewa", ['sewa' => $sewa, 'barang'=>$barang,'user'=>$user]);
     }
 
     /**
@@ -43,6 +46,7 @@ class SewaController extends Controller
     public function store(Request $request)
     {
         //
+
         $sewa = new Sewa();
         $sewa->tanggal_sewa = $request->tanggal_sewa;
         $sewa->tanggal_transaksi = $request->tanggal_transaksi;
@@ -97,12 +101,12 @@ class SewaController extends Controller
         $sewa->status = $request->status;
         $sewa->barang_idbarang = $request->barang;
         $sewa->user_id = $request->user;
-
+        
         if ($sewa->save()) {
             return redirect('/admin/persewaan');
         }
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -112,5 +116,14 @@ class SewaController extends Controller
     public function destroy($id)
     {
         //
+        $sewa = Sewa::findOrFail($id);
+
+        // if (count($sewa->user) == 0) {
+            $sewa->delete();
+            return redirect('/admin/persewaan')->with('message', 'Berhasil Menghapus Data');;
+        // } else {
+            // return redirect('/user')->with('message', 'Gagal Menghapus Data. Pindahkan siswa ke user lain terlebih dahulu.');
+        // }
+
     }
 }
