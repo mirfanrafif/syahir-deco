@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap-slider.css') }}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- Owl Carousel -->
   <link href="{{ asset('plugins/slick-carousel/slick/slick.css') }}" rel="stylesheet">
   <link href="{{ asset('plugins/slick-carousel/slick/slick-theme.css') }}" rel="stylesheet">
@@ -47,7 +47,7 @@
       <div class="row">
         <div class="col-md-12">
           <nav class="navbar navbar-expand-lg navbar-light navigation">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
               <img src="{{ asset('images/logo.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -210,9 +210,6 @@
   <script src="{{ asset('plugins/slick-carousel/slick/slick.min.js') }}"></script>
   <script src="{{ asset('plugins/fancybox/jquery.fancybox.pack.js') }}"></script>
   <!-- google map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places">
-  </script>
-  <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>
 
 </body>

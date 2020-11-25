@@ -23,13 +23,13 @@ class WelcomeController extends Controller
 
     public function barang(Request $request){
         if ($request->has('kategori')) {
-            $barang = Barang::where('kategori', 'LIKE', '%'. $request->kategori .'%')->get();
+            $barang = Barang::where('kategori', 'LIKE', '%'. $request->kategori .'%')->paginate(12);
             return view("gridbarang", ["barangs" => $barang]);
         }else if ($request->paket) {
-            $barang = Barang::where('kategori_acara', $request->paket)->get();
+            $barang = Barang::where('kategori_acara', $request->paket)->paginate(12);
             return view("gridbarang", ["barangs" => $barang]);
         }else{
-            $barang = Barang::all();
+            $barang = Barang::paginate(12);
             return view("gridbarang", ["barangs" => $barang]);
         }
     }

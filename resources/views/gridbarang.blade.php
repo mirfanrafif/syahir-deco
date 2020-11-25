@@ -45,10 +45,10 @@
             <h4 class="widget-header">Kategori</h4>
             <ul class="category-list">
               <li>
-                <a href="/barang?kategori=paket">Paket Dekorasi <span>93</span></a>
+                <a href="/barang?kategori=paket">Paket Dekorasi</a>
               </li>
               <li>
-                <a href="/barang?kategori=tambahan">Dekorasi Tambahan <span>233</span></a>
+                <a href="/barang?kategori=tambahan">Dekorasi Tambahan</a>
               </li>
             </ul>
           </div>
@@ -57,19 +57,19 @@
             <h4 class="widget-header">Paket</h4>
             <ul class="category-list">
               <li>
-                <a href="/barang?paket=Wedding">Wedding <span>93</span></a>
+                <a href="/barang?paket=Wedding">Wedding</a>
               </li>
               <li>
-                <a href="/barang?paket=Engagement">Engangement <span>233</span></a>
+                <a href="/barang?paket=Engagement">Engangement</a>
               </li>
               <li>
-                <a href="/barang?paket=Birthday">Birthday <span>183</span></a>
+                <a href="/barang?paket=Birthday">Birthday</a>
               </li>
               <li>
-                <a href="/barang?paket=Condolences">Condolences <span>120</span></a>
+                <a href="/barang?paket=Condolences">Condolences</a>
               </li>
               <li>
-                <a href="category.html">Celebration <span>40</span></a>
+                <a href="/barang?paket=Celebration">Celebration</a>
               </li>
             </ul>
           </div>
@@ -81,13 +81,7 @@
         <div class="category-search-filter">
           <div class="row">
             <div class="col-md-6">
-              <strong>Urutkan</strong>
-              <select>
-                <option>Paket Terbaru</option>
-                <option value="1">Paling Populer</option>
-                <option value="2">Harga Terendah</option>
-                <option value="4">Harga Tertinggi</option>
-              </select>
+              <strong>Data Paket</strong>
             </div>
           </div>
         </div>
@@ -130,36 +124,9 @@
             @else
             <h1 class="text-center">Data Kosong</h1>
             @endif
-            {{-- {{json_encode($barangs)}} --}}
           </div>
         </div>
-        <div class="pagination justify-content-center py-4">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        {{ $barangs->links() }}
       </div>
     </div>
   </div>
