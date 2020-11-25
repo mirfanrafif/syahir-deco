@@ -65,8 +65,12 @@
           </div>
         </div>
       </fieldset>
-      <!-- Post Your ad end -->
 
+
+      <!-- Post Your ad end -->
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
       <!-- submit button -->
       <button type="submit" class="btn btn-primary d-block mt-2">Pesan Sekarang</button>
     </form>

@@ -37,6 +37,7 @@ Route::post('/sewa', [WelcomeController::class, 'prosesSewa'])->middleware('User
 //user sewa
 Route::get('/user/sewa', [TransaksiController::class, 'index'])->middleware('UserAuth');
 Route::get('/user/sewa/{id}/bayar', [TransaksiController::class, 'bayar'])->middleware('UserAuth');
+Route::post('/user/sewa/{id}/bayar', [TransaksiController::class, 'prosesBayar'])->middleware('UserAuth');
 
 //admin dashboard
 Route::get("/admin", [\App\Http\Controllers\admin\HomeController::class, "index"])->middleware('AdminAuth');

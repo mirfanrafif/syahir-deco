@@ -66,7 +66,7 @@
             <p>Tertarik dengan Produk Kami?
             </p>
             <!-- Submii button -->
-            <a href="" class="btn btn-transparent-white">Pesan Sekarang</a>
+            <a href="/sewa" class="btn btn-transparent-white">Pesan Sekarang</a>
           </div>
 
         </div>

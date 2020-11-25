@@ -68,6 +68,7 @@
           <!-- Safety tips widget -->
           <div class="widget disclaimer">
             <h5 class="widget-header">Informasi Pembayaran</h5>
+            @if ($sewa->nama_file_bukti == null)
             <p>
               Silahkan melakukan pembayaran melalui Nomor Rekening dibawah ini :
             </p>
@@ -75,7 +76,39 @@
             <p>BCA - 130382976121 - Budi A</p>
             <p>Lakukan Pembayaran dan Upload Bukti Transfer sebelum
               {{$sewa->tanggal_transaksi}}</p>
-            <a href="/user/sewa/upload" class="btn btn-success btn-block">Bayar</a>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Upload Bukti Pembayaran
+            </button>
+            @else
+            <img src="{{$bukti}}" alt="" srcset="" class="card-img-top">
+            @endif
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <form action="/user/sewa/{{$sewa->idpersewaan}}/bayar" enctype="multipart/form-data" method="post">
+                    @csrf
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Pembayaran</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <label for="bukti">Bukti harus berupa file : jpg, bmp, atau png. Selain Itu, file tidak
+                        diterima</label>
+                      <input type="file" name="bukti" id="bukti">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                      <button type="submit" class="btn btn-primary">Upload</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
