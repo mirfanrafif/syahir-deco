@@ -13,7 +13,10 @@ class Barang extends Model
     protected $primaryKey = "idbarang";
     protected $fillable = ["jenis_paket", "keterangan", "stok", "harga", "kategori", "kategori_acara"];
 
-    public function sewa() {
+    public $timestamps = false;
+
+    public function sewa()
+    {
         return $this->hasMany('App\Models\Sewa', 'barang_idbarang');
     }
 }

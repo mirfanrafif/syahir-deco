@@ -11,7 +11,7 @@
     <li class="app-sidebar__heading">Admin</li>
 
     <li>
-        <a href="/admin/barang">
+        <a href="/admin/barang" class="mm-active">
             <i class="metismenu-icon pe-7s-display2"></i>
             Barang
         </a>
@@ -23,7 +23,7 @@
         </a>
     </li>
     <li>
-        <a href="/admin/user" class="mm-active">
+        <a href="/admin/user" >
             <i class="metismenu-icon pe-7s-display2"></i>
             User
         </a>
@@ -38,7 +38,7 @@
                 <i class="pe-7s-display1 icon-gradient bg-premium-dark"> </i>
             </div>
             <div>
-                Form Tambah User
+                Form Tambah Barang
                 <div class="page-title-subheading">
                     Wide selection of forms controls, using the Bootstrap 4 code
                     base, but built with React.
@@ -51,110 +51,82 @@
 @endsection @section('content')
 <div class="main-card mb-3 card">
     <div class="card-body">
-        @foreach ($user as $item)
-        <h5 class="card-title">Grid</h5>
-        <form action="/admin/user/{{ $item->id }}" method="post">
-            @method('PUT')
+        <h5 class="card-title">Data Barang</h5>
+        <form action="/admin/barang" method="post">
             {{ csrf_field() }}
-            <input type="hidden" name="{{ $item->id }}">
             <div class="position-relative row form-group">
-                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <label for="jenis_paket" class="col-sm-2 col-form-label">Jenis Paket</label>
                 <div class="col-sm-10">
                     <input
-                        name="nama"
-                        id="nama"
-                        placeholder="enter name"
+                        name="jenis_paket"
+                        id="jenispaket"
+                        placeholder="enter name paket"
                         type="text"
                         class="form-control"
-                        value="{{ $item->nama }}"
                     />
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
                 <div class="col-sm-10">
                     <input
-                        name="email"
-                        id="email"
-                        placeholder="enter email"
-                        type="email"
+                        name="keterangan"
+                        id="keterangan"
+                        placeholder="enter ketranagan"
+                        type="text"
                         class="form-control"
-                        value="{{ $item->email }}"
                     />
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="password" class="col-sm-2 col-form-label"
-                    >Password</label
+                <label for="stok" class="col-sm-2 col-form-label"
+                    >Stok</label
                 >
                 <div class="col-sm-10">
                     <input
-                        name="password"
-                        id="password"
-                        placeholder="enter password"
-                        type="password"
+                        name="stok"
+                        id="stok"
+                        placeholder="Enter stok"
+                        type="number"
                         class="form-control"
-                        value="{{ $item->password }}"
-                    />
-                </div>
-            </div>
-            <div class="position-relative row form-group">
-                <label for="level" class="col-sm-2 col-form-label" value="{{ $item->level }}">Level</label>
-                <div class="col-sm-10">
-                    <select name="level" id="level" class="form-control">
-                        <option value="user"  
-                        @if ("user"==$item->level)
-                            selected
-                        @endif
-                        >User</option>
-                        <option value="admin" 
-                        @if ("admin"==$item->level)
-                                selected
-                            @endif
-                            >Admin</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="position-relative row form-group">
-                <label for="alamat" class="col-sm-2 col-form-label"
-                    >Alamat</label
-                >
-                <div class="col-sm-10">
-                    <input
-                        name="alamat"
-                        id="alamat"
-                        placeholder="Enter address"
-                        type="text"
-                        class="form-control"
-                        value="{{ $item->alamat }}"
                     />
                 </div>
             </div>
 
             <div class="position-relative row form-group">
-                <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                 <div class="col-sm-10">
                     <input
-                        name="phone"
-                        id="phone"
+                        name="harga"
+                        id="harga"
                         placeholder="Enter phone number"
-                        type="text"
+                        type="number"
                         class="form-control"
-                        value="{{ $item->notelepon }}"
                     />
                 </div>
             </div>
             <div class="position-relative row form-group">
-                <label for="ktp" class="col-sm-2 col-form-label">No KTP</label>
+                <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                 <div class="col-sm-10">
                     <input
-                        name="ktp"
-                        id="ktp"
-                        placeholder="masukkan no ktp"
+                        name="kategori"
+                        id="kategori"
+                        placeholder="masukkan kategori"
                         type="text"
                         class="form-control"
-                        value="{{ $item->noktp }}"
+                    />
+                </div>
+            </div>
+
+            <div class="position-relative row form-group">
+                <label for="kategori_acara" class="col-sm-2 col-form-label">Kategori Acara</label>
+                <div class="col-sm-10">
+                    <input
+                        name="kategori_acara"
+                        id="kategori_acara"
+                        placeholder="masukkan kategori acara"
+                        type="text"
+                        class="form-control"
                     />
                 </div>
             </div>
@@ -220,7 +192,6 @@
                 </div>
             </div>
         </form>
-        @endforeach
     </div>
 </div>
 
