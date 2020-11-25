@@ -20,13 +20,21 @@ class TransaksiController extends Controller
     public function bayar(Request $request)
     {
         $dataSewa = Sewa::find($request->id);
-        return view('user.sewa.bayar', ["sewa" => $dataSewa]);
+        if ($dataSewa->nama_file_bukti) {
+            $bukti = Storage::url($dataSewa->nama_file_bukti);
+        }else{
+            $bukti = "";
+        }
+        return view('user.sewa.bayar', ["sewa" => $dataSewa, "bukti" => $bukti]);
     }
 
     public function prosesBayar(Request $request) 
     { 
-        $file = $request->file('bukti')->store('bukti');
+        $request->validate([
+            'bukti' => ['required', 'mimes:jpeg,bmp,png']
+        ]);
 
+        $file = $request->file('bukti')->store('public/bukti');
 
         $idSewa = $request->id;
         $sewa = Sewa::find($idSewa);

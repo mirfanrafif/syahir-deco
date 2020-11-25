@@ -63,15 +63,25 @@
 									<h3 class="title">{{$sewa->barang->jenis_paket}}</h3>
 									<span class="add-id"><strong>ID Sewa</strong> {{$sewa->idpersewaan}}</span>
 									<span><strong>Tanggal Sewa: </strong><time>{{$sewa->tanggal_sewa}}</time> </span>
-									<span class="status active"><strong>Status</strong>{{$sewa->status}}</span>
+
+									@switch($sewa->status)
+									@case(-1)
+									<span class="text-danger"><strong>Status</strong>Belum Dibayar</span>
+									@case(0)
+									<span class="text-danger"><strong>Status</strong>Belum Dibayar</span>
+									@break
+									@case(1)
+									<span class="status active"><strong>Status</strong>Menunggu Konfirmasi</span>
+									@break
+									@default
+
+									@endswitch
 									<span class="location"><strong>Alamat</strong>{{$sewa->user->alamat}}</span>
 								</td>
 								<td class="product-category"><span class="categories">{{$sewa->barang->kategori}}</span></td>
 								<td class="action">
-									@if ($sewa->status == 0)
 									<a href="/user/sewa/{{$sewa->idpersewaan}}/bayar" class="btn btn-primary"> <i
 											class="fas fa-receipt"></i></span></a>
-									@endif
 								</td>
 							</tr>
 							@endforeach
