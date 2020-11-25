@@ -52,10 +52,6 @@ class WelcomeController extends Controller
     public function prosesSewa(Request $request)
     {
         $request->validate([
-            'nama' => ["reqired", "string"],
-            'email' => ["required", "string", "email"],
-            'noktp' => ["required", "string"],
-            'nohp' => ["required", 'string'],
             'tanggal_sewa' => ['required', 'date'],
             'barang_idbarang' => ['required']
         ]);
