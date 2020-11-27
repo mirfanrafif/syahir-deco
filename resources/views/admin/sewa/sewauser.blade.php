@@ -54,14 +54,6 @@
         </div>
       </div>
     </div>
-    <div class="page-title-actions">
-      <a href="/admin/persewaan/create" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">
-        <span class="btn-icon-wrapper pr-2 opacity-7">
-          <i class="fa fa-business-time fa-w-20"></i>
-        </span>
-        ADD SEWA
-      </a>
-    </div>
   </div>
 </div>
 @endsection
@@ -93,7 +85,12 @@
                           <td>{{ $item->tanggal_transaksi }}</td>
                           <td>{{ $item->barang->jenis_paket }}</td>
                           <td>{{ $item->user->nama }}</td>
-                          <td>{{ $item->status }}</td>
+                          <td>
+                            @if ($item->status == -1)
+                                DITOLAK
+                            @else
+                                DITERIMA
+                            @endif</td>
                           <form action="/admin/persewaan/{{ $item->idpersewaan }}" method="post">
                             @csrf
                             @method('DELETE')

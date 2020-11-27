@@ -73,7 +73,11 @@
             <div class="position-relative row form-group">
                 <label for="status" class="col-sm-2 col-form-label">Status</label>
                 <div class="col-sm-10">
-                    <input name="status" id="status" placeholder="enter status" type="number" class="form-control" value="{{ $sewa->status }}" />
+                    <select name="status" id="status" class="form-control">
+                        <option value="-">--------</option>
+                        <option value="-1">Tolak</option>
+                        <option value="3">Terima</option>
+                    </select>
                 </div>
             </div>
             <div class="position-relative row form-group">
