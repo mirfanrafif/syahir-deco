@@ -47,6 +47,7 @@ class BarangController extends Controller
         $barang->harga = $request->harga;
         $barang->kategori = $request->kategori;
         $barang->kategori_acara = $request->kategori_acara;
+        $barang->nama_file_foto = $request->nama_file_foto;
 
         if ($barang->save()) {
             return redirect('/admin/barang');
