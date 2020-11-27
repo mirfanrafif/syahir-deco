@@ -92,16 +92,17 @@
             <div class="position-relative row form-group">
                 <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                 <div class="col-sm-10">
-                    <input name="kategori" id="kategori" placeholder="enter kategori" type="text" class="form-control"
-                        value="{{ $item->kategori }}" />
+                    <option value="-">---</option>
+                    <option value="Paket Dekorasi">Paket Dekorasi</option>
+                    <option value="Dekorasi Tambahan">Dekorasi Tambahan</option>
                 </div>
             </div>
 
             <div class="position-relative row form-group">
                 <label for="kategori_acara" class="col-sm-2 col-form-label">Kategori Acara </label>
                         <div class="col-sm-10">
-                            <input name="kategori_acara" id="kategori_acara" placeholder="enter kategori acara"
-                                type="text" class="form-control" value="{{ $item->kategori_acara }}" />
+                            <option value="-">---</option>
+                            <option value="Wedding">Wedding</option>
                         </div>
             </div>
 

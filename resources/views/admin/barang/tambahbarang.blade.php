@@ -108,83 +108,37 @@
             <div class="position-relative row form-group">
                 <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                 <div class="col-sm-10">
-                    <input
-                        name="kategori"
-                        id="kategori"
-                        placeholder="masukkan kategori"
-                        type="text"
-                        class="form-control"
-                    />
+                    <select name="kategori" id="kategori" class="form-control">
+                        <option value="-">---</option>
+                        <option value="Paket Dekorasi">Paket Dekorasi</option>
+                        <option value="Dekorasi Tambahan">Dekorasi Tambahan</option>
+                    </select>
+
                 </div>
             </div>
 
             <div class="position-relative row form-group">
                 <label for="kategori_acara" class="col-sm-2 col-form-label">Kategori Acara</label>
                 <div class="col-sm-10">
-                    <input
-                        name="kategori_acara"
-                        id="kategori_acara"
-                        placeholder="masukkan kategori acara"
-                        type="text"
-                        class="form-control"
-                    />
+                    <select name="kategori_acara" id="kategori_acara" class="form-control">
+                        <option value="-">---</option>
+                        <option value="Wedding">Wedding</option>
+                    </select>
                 </div>
             </div>
 
             <fieldset class="position-relative row form-group">
-                <legend class="col-form-label col-sm-2">Radio Buttons</legend>
+                <legend class="col-form-label col-sm-2">File Upload</legend>
                 <div class="col-sm-10">
-                    <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                type="radio"
-                                class="form-check-input"
-                            />
-                            Option one is this and that—be sure to include why
-                            it's great</label
-                        >
-                    </div>
-                    <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                type="radio"
-                                class="form-check-input"
-                            />
-                            Option two can be something else and selecting it
-                            will deselect option one</label
-                        >
-                    </div>
-                    <div class="position-relative form-check disabled">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                disabled=""
-                                type="radio"
-                                class="form-check-input"
-                            />
-                            Option three is disabled</label
-                        >
+                    <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label">File</label>
+                        <div class="col-sm-10"><input name="nama_file_foto" id="nama_file_foto" type="file" class="form-control-file">
+                            <small class="form-text text-muted">Tempat untuk upload gambar yang berbentuk PNG/JPG/SVG.</small>
+                        </div>
                     </div>
                 </div>
             </fieldset>
             <div class="position-relative row form-group">
-                <label for="checkbox2" class="col-sm-2 col-form-label"
-                    >Checkbox</label
-                >
-                <div class="col-sm-10">
-                    <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                id="checkbox2"
-                                type="checkbox"
-                                class="form-check-input"
-                            />
-                            Check me out</label
-                        >
-                    </div>
-                </div>
+                
             </div>
             <div class="position-relative row form-check">
                 <div class="col-sm-10 offset-sm-2">
