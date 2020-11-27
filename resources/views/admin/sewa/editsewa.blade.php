@@ -73,7 +73,11 @@
             <div class="position-relative row form-group">
                 <label for="status" class="col-sm-2 col-form-label">Status</label>
                 <div class="col-sm-10">
-                    <input name="status" id="status" placeholder="enter status" type="number" class="form-control" value="{{ $sewa->status }}" />
+                    <select name="status" id="status" class="form-control">
+                        <option value="-">--------</option>
+                        <option value="-1">Tolak</option>
+                        <option value="3">Terima</option>
+                    </select>
                 </div>
             </div>
             <div class="position-relative row form-group">
@@ -109,60 +113,16 @@
             </div>
 
             <fieldset class="position-relative row form-group">
-                <legend class="col-form-label col-sm-2">Radio Buttons</legend>
+                <legend class="col-form-label col-sm-2">File Upload</legend>
                 <div class="col-sm-10">
-                    <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                type="radio"
-                                class="form-check-input"
-                            />
-                            Option one is this and that—be sure to include why
-                            it's great</label
-                        >
-                    </div>
-                    <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                type="radio"
-                                class="form-check-input"
-                            />
-                            Option two can be something else and selecting it
-                            will deselect option one</label
-                        >
-                    </div>
-                    <div class="position-relative form-check disabled">
-                        <label class="form-check-label"
-                            ><input
-                                name="radio2"
-                                disabled=""
-                                type="radio"
-                                class="form-check-input"
-                            />
-                            Option three is disabled</label
-                        >
-                    </div>
+                        <div class="col-sm-10">
+                            <img src="{{ Storage::url($sewa->nama_file_bukti) }}" class="card-img-top" alt="Girl in a jacket" >
+                        </div>
+                        
                 </div>
             </fieldset>
-            <div class="position-relative row form-group">
-                <label for="checkbox2" class="col-sm-2 col-form-label"
-                    >Checkbox</label
-                >
-                <div class="col-sm-10">
-                    <div class="position-relative form-check">
-                        <label class="form-check-label"
-                            ><input
-                                id="checkbox2"
-                                type="checkbox"
-                                class="form-check-input"
-                            />
-                            Check me out</label
-                        >
-                    </div>
-                </div>
-            </div>
+
+            
             <div class="position-relative row form-check">
                 <div class="col-sm-10 offset-sm-2">
                     <button class="btn btn-secondary">Submit</button>
