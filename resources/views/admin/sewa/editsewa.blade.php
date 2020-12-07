@@ -74,9 +74,9 @@
                 <label for="status" class="col-sm-2 col-form-label">Status</label>
                 <div class="col-sm-10">
                     <select name="status" id="status" class="form-control">
-                        <option value="-">--------</option>
+                        <option value="0">--------</option>
                         <option value="-1">Tolak</option>
-                        <option value="3">Terima</option>
+                        <option value="1">Terima</option>
                     </select>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                 <legend class="col-form-label col-sm-2">File Upload</legend>
                 <div class="col-sm-10">
                         <div class="col-sm-10">
-                            <img src="{{ Storage::url($sewa->nama_file_bukti) }}" class="card-img-top" alt="Girl in a jacket" >
+                            <img src="{{ Storage::url($sewa->nama_file_bukti) }}" class="card-img-top" alt="Bukti" >
                         </div>
                         
                 </div>

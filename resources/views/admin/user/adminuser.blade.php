@@ -73,7 +73,7 @@
         <table class="mb-0 table table-striped">
           <thead>
             <tr>
-              <th>#</th>
+              {{-- <th>#</th> --}}
               <th>Nama</th>
               <th>Email</th>
               <th>Level</th>
@@ -85,7 +85,7 @@
             @endphp
             @foreach ($user as $item)
             <tr>
-              <th scope="row">{{ $count +=1 }}</th>
+              {{-- <th scope="row">{{ $count +=1 }}</th> --}}
               <td>{{ $item->nama }}</td>
               <td>{{ $item->email }}</td>
               <td>{{ $item->level }}</td>
@@ -104,7 +104,9 @@
           </tbody>
         </table>
       </div>
+
     </div>
+    {{ $user->links() }}
   </div>
 </div>
 

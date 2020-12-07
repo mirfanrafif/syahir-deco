@@ -66,7 +66,7 @@
                 <table class="mb-0 table table-striped">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      {{-- <th>#</th> --}}
                       <th>Tanggal Sewa</th>
                       <th>Tanggal Transaksi</th>
                       <th>Barang</th>
@@ -80,17 +80,26 @@
                     @endphp
                     @foreach ($sewa as $item)
                         <tr>
-                          <th scope="row">{{ $count +=1 }}</th>
+                          {{-- <th scope="row">{{ $count +=1 }}</th> --}}
                           <td>{{ $item->tanggal_sewa }}</td>
                           <td>{{ $item->tanggal_transaksi }}</td>
                           <td>{{ $item->barang->jenis_paket }}</td>
                           <td>{{ $item->user->nama }}</td>
                           <td>
-                            @if ($item->status == -1)
-                                DITOLAK
-                            @else
-                                DITERIMA
-                            @endif</td>
+                            @switch($item->status)
+                                @case(-1)
+                                    Ditolak
+                                    @break
+                                @case(0)
+                                    Belum di acc
+                                    @break
+                                @case(1)
+                                    Diterima
+                                    @break
+                                @default
+                                    
+                            @endswitch
+                           
                           <form action="/admin/persewaan/{{ $item->idpersewaan }}" method="post">
                             @csrf
                             @method('DELETE')
@@ -107,6 +116,7 @@
                 </table>
             </div>
         </div>
+        {{ $sewa->links() }}
     </div>
 </div>
 
