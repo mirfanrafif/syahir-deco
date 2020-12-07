@@ -16,7 +16,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        $barang = DB::table('barang')->get();
+        $barang = Barang::paginate(5);
+        // $barang = DB::table('barang')->get();
 
         return view('admin/barang/baranguser', ['barang' => $barang]);
     }

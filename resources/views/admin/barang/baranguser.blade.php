@@ -75,7 +75,7 @@
         <table class="mb-0 table table-striped">
           <thead>
             <tr>
-              <th>#</th>
+              {{-- <th>#</th> --}}
               <th>Jenis Paket</th>
               <th>Keterangan</th>
               <th>Stok</th>
@@ -90,7 +90,7 @@
             @endphp
             @foreach ($barang as $item)
             <tr>
-              <th scope="row">{{ $count +=1 }}</th>
+              {{-- <th scope="row">{{ $count +=1 }}</th> --}}
               <td>{{ $item->jenis_paket }}</td>
               <td>{{ $item->keterangan }}</td>
               <td>{{ $item->stok }}</td>
@@ -112,6 +112,8 @@
         </table>
       </div>
     </div>
+
+    {{ $barang->links() }}
   </div>
 </div>
 @endsection

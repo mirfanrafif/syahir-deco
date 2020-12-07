@@ -18,7 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = DB::table('user')->get();
+        $user = User::paginate(12);
+        // $user = DB::table('user')->get();
 
         return view('admin/user/adminuser', ['user' => $user]);
 

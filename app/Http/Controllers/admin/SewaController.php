@@ -18,7 +18,7 @@ class SewaController extends Controller
      */
     public function index()
     {
-        $sewa = Sewa::all();
+        $sewa = Sewa::paginate(12);
         return view('admin/sewa/sewauser', ['sewa' => $sewa]);
     }
 
