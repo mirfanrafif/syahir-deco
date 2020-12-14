@@ -118,4 +118,20 @@ class BarangController extends Controller
             return redirect('/user')->with('message', 'Gagal Menghapus Data. Pindahkan siswa ke user lain terlebih dahulu.');
         }
     }
+    public function cari(Request $request)
+    {
+        
+        $keyword = "gold";
+        $cek =  Barang::where('jenis_paket','like',"%".$keyword."%")->paginate();
+        if (Barang::where('jenis_paket','like',"%".$keyword."%")->exists()) {
+            return view('admin/barang/baranguser', ['barang' => Barang::where('jenis_paket','like',"%".$keyword."%")->paginate()]);
+        }elseif(Barang::where('keterangan','like',"%".$keyword."%")->exists()) {
+            return view('admin/barang/baranguser', ['barang' => Barang::where('keterangan','like',"%".$keyword."%")->paginate()]);
+        }else {
+            return view('admin/barang/baranguser', ['barang' => $cek]);
+            
+        }
+
+        return view('admin/barang/baranguser', ['barang' => $barang]);
+    }
 }

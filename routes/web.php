@@ -44,7 +44,7 @@ Route::get("/admin", [\App\Http\Controllers\admin\HomeController::class, "index"
 
 //admin barang
 Route::resource('/admin/barang', BarangController::class)->middleware('AdminAuth');
-Route::post('/admin/cari/', [BarangController::class, 'cari'])->middleware('AdminAuth');
+Route::post('/admin/barang/cari/', [BarangController::class, 'cari'])->middleware('AdminAuth');
 
 //admin persewaan
 Route::resource('/admin/persewaan', SewaController::class)->middleware('AdminAuth');
