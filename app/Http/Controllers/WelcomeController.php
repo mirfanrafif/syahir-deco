@@ -64,6 +64,10 @@ class WelcomeController extends Controller
         $sewa->user_id = Auth::user()->id;
         $sewa->save();
 
+        $barang = Barang::find($request->barang_idbarang);
+        $barang->stok = $barang->stok -1;
+        $barang->save();
+
         return redirect('user/sewa');
     }
 }

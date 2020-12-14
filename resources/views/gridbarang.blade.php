@@ -48,7 +48,7 @@
                 <a href="/barang?kategori=paket">Paket Dekorasi</a>
               </li>
               <li>
-                <a href="/barang?kategori=tambahan">Dekorasi Tambahan</a>
+                <a href="/barang?kategori=pendukung">Dekorasi Tambahan</a>
               </li>
             </ul>
           </div>
