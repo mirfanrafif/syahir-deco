@@ -48,6 +48,8 @@ Route::post('/admin/barang/cari/', [BarangController::class, 'cari'])->middlewar
 
 //admin persewaan
 Route::resource('/admin/persewaan', SewaController::class)->middleware('AdminAuth');
+Route::post('/admin/persewaan/cari/', [BarangController::class, 'cari'])->middleware('AdminAuth');
 
 //admin user
 Route::resource('/admin/user', UserController::class)->middleware('AdminAuth');
+Route::post('/admin/user/cari/', [BarangController::class, 'cari'])->middleware('AdminAuth');
