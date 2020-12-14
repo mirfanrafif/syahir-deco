@@ -120,8 +120,8 @@ class BarangController extends Controller
     }
     public function cari(Request $request)
     {
-        
-        $keyword = "gold";
+        $keyword = $request->keyword;
+        echo $keyword;
         $cek =  Barang::where('jenis_paket','like',"%".$keyword."%")->paginate();
         if (Barang::where('jenis_paket','like',"%".$keyword."%")->exists()) {
             return view('admin/barang/baranguser', ['barang' => Barang::where('jenis_paket','like',"%".$keyword."%")->paginate()]);
@@ -132,6 +132,6 @@ class BarangController extends Controller
             
         }
 
-        return view('admin/barang/baranguser', ['barang' => $barang]);
+        return view('admin/barang/baranguser', ['barang' => $cek]);
     }
 }
