@@ -44,12 +44,12 @@ Route::get("/admin", [\App\Http\Controllers\admin\HomeController::class, "index"
 
 //admin barang
 Route::resource('/admin/barang', BarangController::class)->middleware('AdminAuth');
-Route::post('/admin/barang/cari/', [BarangController::class, 'cari'])->middleware('AdminAuth');
+Route::post('/admin/barang/cari/', [BarangController::class, 'cariBarang'])->middleware('AdminAuth');
 
 //admin persewaan
 Route::resource('/admin/persewaan', SewaController::class)->middleware('AdminAuth');
-Route::post('/admin/persewaan/cari/', [BarangController::class, 'cari'])->middleware('AdminAuth');
+Route::post('/admin/persewaan/cari/', [SewaController::class, 'cariSewa'])->middleware('AdminAuth');
 
 //admin user
 Route::resource('/admin/user', UserController::class)->middleware('AdminAuth');
-Route::post('/admin/user/cari/', [BarangController::class, 'cari'])->middleware('AdminAuth');
+Route::post('/admin/user/cari/', [UserController::class, 'cariUser'])->middleware('AdminAuth');
