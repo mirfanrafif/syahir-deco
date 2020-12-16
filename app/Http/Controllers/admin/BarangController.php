@@ -127,6 +127,10 @@ class BarangController extends Controller
             return view('admin/barang/baranguser', ['barang' => Barang::where('jenis_paket','like',"%".$keyword."%")->paginate()]);
         }elseif(Barang::where('keterangan','like',"%".$keyword."%")->exists()) {
             return view('admin/barang/baranguser', ['barang' => Barang::where('keterangan','like',"%".$keyword."%")->paginate()]);
+        }elseif(Barang::where('kategori','like',"%".$keyword."%")->exists()) {
+            return view('admin/barang/baranguser', ['barang' => Barang::where('kategori','like',"%".$keyword."%")->paginate()]);
+        }elseif(Barang::where('kategori_acara','like',"%".$keyword."%")->exists()) {
+            return view('admin/barang/baranguser', ['barang' => Barang::where('kategori_acara','like',"%".$keyword."%")->paginate()]);
         }else {
             return view('admin/barang/baranguser', ['barang' => $cek]);
             
