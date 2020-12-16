@@ -128,4 +128,26 @@ class UserController extends Controller
             return redirect('/user')->with('message', 'Gagal Menghapus Data. Pindahkan siswa ke user lain terlebih dahulu.');
         }
     }
+
+    public function cariUser(Request $request)
+    {
+        $keyword = $request->keyword;
+        $cek =  User::where('nama','like',"%".$keyword."%")->paginate();
+        if (User::where('nama','like',"%".$keyword."%")->exists()) {
+            return view('admin/user/adminuser', ['user' => User::where('nama','like',"%".$keyword."%")->paginate()]);
+        }elseif(User::where('email','like',"%".$keyword."%")->exists()) {
+            return view('admin/user/adminuser', ['user' => User::where('email','like',"%".$keyword."%")->paginate()]);
+        }elseif(User::where('level','like',"%".$keyword."%")->exists()) {
+            return view('admin/user/adminuser', ['user' => User::where('level','like',"%".$keyword."%")->paginate()]);
+        }elseif(User::where('alamat','like',"%".$keyword."%")->exists()) {
+            return view('admin/user/adminuser', ['user' => User::where('alamat','like',"%".$keyword."%")->paginate()]);
+        }elseif(User::where('notelepon','like',"%".$keyword."%")->exists()) {
+            return view('admin/user/adminuser', ['user' => User::where('notelepon','like',"%".$keyword."%")->paginate()]);
+        }else {
+            return view('admin/user/adminuser', ['user' => $cek]);
+            
+        }
+
+        return view('admin/user/adminuser', ['user' => $cek]);
+    }
 }
