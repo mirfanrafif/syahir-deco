@@ -126,4 +126,20 @@ class SewaController extends Controller
         // }
 
     }
+    public function cariSewa(Request $request)
+    {
+        $keyword = $request->keyword;
+        echo $keyword;
+        $cek =  Sewa::where('jenis_paket','like',"%".$keyword."%")->paginate();
+        if (Sewa::where('jenis_paket','like',"%".$keyword."%")->exists()) {
+            return view('admin/sewa/sewauser', ['persewaan' => Sewa::where('jenis_paket','like',"%".$keyword."%")->paginate()]);
+        }elseif(Sewa::where('keterangan','like',"%".$keyword."%")->exists()) {
+            return view('admin/sewa/sewauser', ['persewaan' => Sewa::where('keterangan','like',"%".$keyword."%")->paginate()]);
+        }else {
+            return view('admin/sewa/sewauser', ['persewaan' => $cek]);
+            
+        }
+
+        return view('admin/sewa/sewauser', ['persewaan' => $cek]);
+    }
 }

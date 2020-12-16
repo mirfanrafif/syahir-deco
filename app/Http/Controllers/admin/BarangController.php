@@ -62,7 +62,7 @@ class BarangController extends Controller
      */
     public function show($id)
     {
-        return view("admin/adminbarang");
+        return view("admin/barang/baranguser");
     }
 
     /**
@@ -118,7 +118,7 @@ class BarangController extends Controller
             return redirect('/user')->with('message', 'Gagal Menghapus Data. Pindahkan siswa ke user lain terlebih dahulu.');
         }
     }
-    public function cari(Request $request)
+    public function cariBarang(Request $request)
     {
         $keyword = $request->keyword;
         echo $keyword;
