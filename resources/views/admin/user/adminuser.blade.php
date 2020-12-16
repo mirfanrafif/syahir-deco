@@ -77,6 +77,8 @@
               <th>Nama</th>
               <th>Email</th>
               <th>Level</th>
+              <th>Alamat</th>
+              <th>No Telpon</th>
             </tr>
           </thead>
           <tbody>
@@ -89,6 +91,8 @@
               <td>{{ $item->nama }}</td>
               <td>{{ $item->email }}</td>
               <td>{{ $item->level }}</td>
+              <td>{{ $item->alamat }}</td>
+              <td>{{ $item->notelepon }}</td>
               <td>
                 {{-- <a href="/admin/user/{{$item->id}}" class="badge badge-info">Detail</a> --}}
                 <form action="/admin/user/{{ $item->id }}" method="post">

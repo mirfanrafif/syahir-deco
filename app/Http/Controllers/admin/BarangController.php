@@ -62,7 +62,7 @@ class BarangController extends Controller
      */
     public function show($id)
     {
-        return view("admin/adminbarang");
+        return view("admin/barang/baranguser");
     }
 
     /**
@@ -117,5 +117,25 @@ class BarangController extends Controller
         } else {
             return redirect('/user')->with('message', 'Gagal Menghapus Data. Pindahkan siswa ke user lain terlebih dahulu.');
         }
+    }
+    public function cariBarang(Request $request)
+    {
+        $keyword = $request->keyword;
+        echo $keyword;
+        $cek =  Barang::where('jenis_paket','like',"%".$keyword."%")->paginate();
+        if (Barang::where('jenis_paket','like',"%".$keyword."%")->exists()) {
+            return view('admin/barang/baranguser', ['barang' => Barang::where('jenis_paket','like',"%".$keyword."%")->paginate()]);
+        }elseif(Barang::where('keterangan','like',"%".$keyword."%")->exists()) {
+            return view('admin/barang/baranguser', ['barang' => Barang::where('keterangan','like',"%".$keyword."%")->paginate()]);
+        }elseif(Barang::where('kategori','like',"%".$keyword."%")->exists()) {
+            return view('admin/barang/baranguser', ['barang' => Barang::where('kategori','like',"%".$keyword."%")->paginate()]);
+        }elseif(Barang::where('kategori_acara','like',"%".$keyword."%")->exists()) {
+            return view('admin/barang/baranguser', ['barang' => Barang::where('kategori_acara','like',"%".$keyword."%")->paginate()]);
+        }else {
+            return view('admin/barang/baranguser', ['barang' => $cek]);
+            
+        }
+
+        return view('admin/barang/baranguser', ['barang' => $cek]);
     }
 }

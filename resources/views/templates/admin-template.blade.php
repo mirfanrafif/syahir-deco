@@ -65,15 +65,19 @@
       </div>
       <div class="app-header__content">
         <div class="app-header-left">
+          <form action="/admin/{{ Request::segment(2) }}/cari" name="{{ Request::segment(2) }}" id="cari_id" class="cari_class" method="post">
+            @csrf
           <div class="search-wrapper">
             <div class="input-holder">
-              <input type="text" class="search-input" placeholder="Type to search" />
-              <button class="search-icon">
+              <input type="text" name="keyword" class="search-input" placeholder="Type to search" />
+              <button type="button" id="cari" class="search-icon">
                 <span></span>
               </button>
+
             </div>
-            <button class="close"></button>
+            <button type="button" class="close"></button>
           </div>
+        </form>
         </div>
         <div class="app-header-right">
           <div class="header-btn-lg pr-0">
