@@ -58,7 +58,7 @@ class WelcomeController extends Controller
 
         $sewa = new Sewa();
         $sewa->tanggal_sewa = $request->tanggal_sewa;
-        $sewa->tanggal_transaksi = Carbon::now()->format('y-m-d');
+        $sewa->tanggal_transaksi = Carbon::now()->format('Y-m-d');
         $sewa->status = 0;
         $sewa->barang_idbarang = $request->barang_idbarang;
         $sewa->user_id = Auth::user()->id;
